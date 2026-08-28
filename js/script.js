@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    AHMAD IBRAHIM — CYBERSECURITY PORTFOLIO
    JavaScript
@@ -306,4 +305,3 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
-```
