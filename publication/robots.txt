@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ahmadibofficial.github.io/ahmadib-portfolio/publication/sitemap.xml
