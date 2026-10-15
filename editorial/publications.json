@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "site_url": "https://ahmadib.onrender.com",
+  "articles": [
+    {
+      "slug": "android-security-toolkit",
+      "title": "Building an Android security toolkit around evidence, not alerts",
+      "category": "tooling",
+      "category_label": "Open-source tooling",
+      "summary": "A practical introduction to the design principles, workflows and limitations of ahmad-sec.",
+      "date": "2026-10-15",
+      "read_minutes": 6,
+      "origin": "existing",
+      "source_urls": [
+        "https://github.com/AhmadibOfficial/android-security-toolkit",
+        "https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/docs/RESEARCH_PROCESS.md"
+      ],
+      "evidence_state": "educational",
+      "disclosure_status": "not_applicable",
+      "website_approved": true,
+      "social_approved": false
+    },
+    {
+      "slug": "exported-android-components",
+      "title": "Exported Android components: exposure is not exploitability",
+      "category": "android",
+      "category_label": "Android security",
+      "summary": "A practical framework for distinguishing reachability, permission checks, behaviour and impact.",
+      "date": "2026-10-15",
+      "read_minutes": 7,
+      "origin": "existing",
+      "source_urls": [
+        "https://developer.android.com/privacy-and-security/risks/android-exported"
+      ],
+      "evidence_state": "educational",
+      "disclosure_status": "not_applicable",
+      "website_approved": true,
+      "social_approved": false
+    },
+    {
+      "slug": "api-authorization-boundaries",
+      "title": "The authorization boundary does not live inside the mobile app",
+      "category": "api",
+      "category_label": "API security",
+      "summary": "Why backend ownership checks matter when an API serves mobile clients.",
+      "date": "2026-10-15",
+      "read_minutes": 6,
+      "origin": "existing",
+      "source_urls": [
+        "https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/"
+      ],
+      "evidence_state": "educational",
+      "disclosure_status": "not_applicable",
+      "website_approved": true,
+      "social_approved": false
+    }
+  ]
+}
