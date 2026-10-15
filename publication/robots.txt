@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ahmadib.onrender.com/sitemap.xml
