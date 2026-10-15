@@ -1,0 +1,25 @@
+name: Editorial publication checks
+on:
+  pull_request:
+    branches:
+      - publication-render
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publication-safe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source (no publish credentials)
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reject unapproved / embargoed content
+        run: python scripts/reputation_pipeline.py validate
+      - name: Ensure generated site matches editorial registry
+        run: python scripts/reputation_pipeline.py check
+      - name: Run publication safety tests
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+# There is deliberately no release, Render deployment, or Metricool API write step.

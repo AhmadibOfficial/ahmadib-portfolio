@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Exported Android components: exposure is not exploitability",
+    "summary": "A practical framework for distinguishing reachability, permission checks, behaviour and impact.",
+    "category": "android",
+    "date": "2026-10-15",
+    "url": "https://ahmadib.onrender.com/articles/exported-android-components.html"
+  },
+  {
+    "title": "The authorization boundary does not live inside the mobile app",
+    "summary": "Why backend ownership checks matter when an API serves mobile clients.",
+    "category": "api",
+    "date": "2026-10-15",
+    "url": "https://ahmadib.onrender.com/articles/api-authorization-boundaries.html"
+  },
+  {
+    "title": "Building an Android security toolkit around evidence, not alerts",
+    "summary": "A practical introduction to the design principles, workflows and limitations of ahmad-sec.",
+    "category": "tooling",
+    "date": "2026-10-15",
+    "url": "https://ahmadib.onrender.com/articles/android-security-toolkit.html"
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "metricool_brand_label": "ahmadibofficial",
+  "metricool_brand_id": "7445168",
+  "timezone": "Africa/Lagos",
+  "external_publishing_enabled": false,
+  "networks": {
+    "linkedin": {
+      "connected": false,
+      "verified_personal": false,
+      "requires_media": false
+    },
+    "facebook": {
+      "connected": true,
+      "verified_personal": false,
+      "requires_media": false
+    },
+    "instagram": {
+      "connected": true,
+      "verified_personal": true,
+      "requires_media": true
+    },
+    "tiktok": {
+      "connected": true,
+      "verified_personal": true,
+      "requires_media": true
+    },
+    "youtube": {
+      "connected": true,
+      "verified_personal": true,
+      "requires_media": true
+    }
+  }
+}

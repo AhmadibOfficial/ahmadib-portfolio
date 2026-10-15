@@ -1,0 +1,11 @@
+{
+  "slug": "sample-mobile-security-topic",
+  "title": "Illustrative new field note (not approved)",
+  "category": "android",
+  "summary": "Add only safe, public research after review.",
+  "status": "proposal",
+  "website_approved": false,
+  "social_approved": false,
+  "disclosure_status": "pending",
+  "note": "Do not commit embargoed or private findings into a public repository."
+}

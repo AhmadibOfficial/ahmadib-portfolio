@@ -29,3 +29,7 @@ Open `http://localhost:8000/publication/`. Render publishes the `publication/` f
 - Update the dedicated branch after review; verify the live Render URL after each deployment.
 - Update `feed.xml`, `sitemap.xml` and the homepage cards whenever publishing a new article.
 - Maintain responsible disclosure and embargo requirements before publishing research.
+
+## Controlled editorial automation
+
+See [REPUTATION_WORKFLOW.md](../REPUTATION_WORKFLOW.md) at repository root. Run `python scripts/reputation_pipeline.py build` to regenerate the approved public article index, cards, RSS, sitemap, and local-only Metricool drafts. Review is mandatory; automatic external publishing stays disabled.
