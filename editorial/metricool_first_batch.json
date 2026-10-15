@@ -21,9 +21,9 @@
       "title": "Scanner output is not proof",
       "caption": "A scanner warning is a starting point—not proof of a vulnerability.\n\nI'm building ahmad-sec, an experimental Android security CLI for authorized APK reconnaissance. My focus is reproducible observations, meaningful validation, and clear limitations.\n\nThe important question is not just what a tool flags, but what a permitted investigation can actually demonstrate.\n\nFull research note: https://ahmadib.onrender.com/articles/android-security-toolkit.html\n\n#AndroidSecurity #AppSec #SecurityResearch #OpenSource",
       "media_files": [
-        "01_toolkit_slide_01.png",
-        "01_toolkit_slide_02.png",
-        "01_toolkit_slide_03.png"
+        "IG-01_slide_01.png",
+        "IG-01_slide_02.png",
+        "IG-01_slide_03.png"
       ],
       "brand_id": "7445168",
       "timezone": "Africa/Lagos",
@@ -41,7 +41,8 @@
       "remote_post_id": null,
       "auto_publish_after_approval": true,
       "publication_approved": false,
-      "auto_publish_currently_allowed": false
+      "auto_publish_currently_allowed": false,
+      "written_caption_review": "PENDING_OWNER_APPROVAL"
     },
     {
       "id": "AB-20261021-IG-02",
@@ -56,9 +57,9 @@
       "title": "Exported is not automatically exploitable",
       "caption": "If an Android component is exported, does that make the application vulnerable? Not automatically.\n\nReachability matters, but so do permissions, actual behavior, and whether sensitive functionality can be accessed without authorization.\n\nA configuration flag is an observation. A security finding needs reproducible impact in an authorized test.\n\nRead the field note: https://ahmadib.onrender.com/articles/exported-android-components.html\n\n#AndroidSecurity #MobileAppSec #SecureCoding",
       "media_files": [
-        "02_exported_slide_01.png",
-        "02_exported_slide_02.png",
-        "02_exported_slide_03.png"
+        "IG-02_slide_01.png",
+        "IG-02_slide_02.png",
+        "IG-02_slide_03.png"
       ],
       "brand_id": "7445168",
       "timezone": "Africa/Lagos",
@@ -76,7 +77,8 @@
       "remote_post_id": null,
       "auto_publish_after_approval": true,
       "publication_approved": false,
-      "auto_publish_currently_allowed": false
+      "auto_publish_currently_allowed": false,
+      "written_caption_review": "PENDING_OWNER_APPROVAL"
     },
     {
       "id": "AB-20261023-TT-03",
@@ -91,7 +93,7 @@
       "title": "A hidden button does not protect an API",
       "caption": "Hiding a feature in the app doesn't protect an API. Authentication answers who a user is. Authorization decides what that user may access.\n\nAn API must enforce access rights for each sensitive resource operation.\n\nMore: https://ahmadib.onrender.com/articles/api-authorization-boundaries.html\n\n#APISecurity #AppSec #MobileSecurity",
       "media_files": [
-        "03_api_authorization_short_draft.mp4"
+        "AHMADIB_API_SECURITY_narrated_captioned_104s.mp4"
       ],
       "brand_id": "7445168",
       "timezone": "Africa/Lagos",
@@ -109,7 +111,14 @@
       "remote_post_id": null,
       "auto_publish_after_approval": true,
       "publication_approved": false,
-      "auto_publish_currently_allowed": false
+      "auto_publish_currently_allowed": false,
+      "video_duration_seconds": 103.25,
+      "has_narration": true,
+      "has_soundtrack": true,
+      "has_burned_subtitles": true,
+      "synthetic_narration": true,
+      "video_review": "PENDING_OWNER_APPROVAL",
+      "written_caption_review": "PENDING_OWNER_APPROVAL"
     },
     {
       "id": "AB-20261023-YT-04",
@@ -124,7 +133,7 @@
       "title": "Authentication Is Not Authorization | Mobile API Security",
       "caption": "A hidden mobile UI control does not protect an API. Server-side resource authorization matters. Educational example only.\n\nFull article: https://ahmadib.onrender.com/articles/api-authorization-boundaries.html\n\n#Shorts #APISecurity #AppSec",
       "media_files": [
-        "03_api_authorization_short_draft.mp4"
+        "AHMADIB_API_SECURITY_narrated_captioned_104s.mp4"
       ],
       "brand_id": "7445168",
       "timezone": "Africa/Lagos",
@@ -142,7 +151,22 @@
       "remote_post_id": null,
       "auto_publish_after_approval": true,
       "publication_approved": false,
-      "auto_publish_currently_allowed": false
+      "auto_publish_currently_allowed": false,
+      "video_duration_seconds": 103.25,
+      "has_narration": true,
+      "has_soundtrack": true,
+      "has_burned_subtitles": true,
+      "synthetic_narration": true,
+      "video_review": "PENDING_OWNER_APPROVAL",
+      "written_caption_review": "PENDING_OWNER_APPROVAL"
     }
-  ]
+  ],
+  "design_version": "white_editorial_v3",
+  "video_policy": {
+    "min_seconds": 30,
+    "max_seconds": 120,
+    "requires_narration_or_soundtrack": true,
+    "requires_educational_content": true,
+    "requires_written_post": true
+  }
 }
