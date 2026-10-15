@@ -1,4 +1,4 @@
-# Ahmad-IB White Editorial Standard (v2)
+# Ahmad-IB White Editorial Standard (v3)
 
 Purpose: build international-facing, evidence-led cybersecurity publications. This is a creative standard, not a certification or guarantee of quality.
 
@@ -10,7 +10,12 @@ Purpose: build international-facing, evidence-led cybersecurity publications. Th
 - One defensible thesis per slide, clear reading hierarchy, generous whitespace and meaningful captions.
 - Explicit Ahmad-IB authorship and research-journal destination; do not use MetaAutomate company branding.
 - Instagram carousels: 1080 × 1350, three or more coherent slides where appropriate.
-- Vertical videos: 1080 × 1920; readable text and safe margins; describe silent drafts accurately. Narration and audio require separate approval.
+- Vertical videos: 1080 × 1920, with readable on-screen educational content, safe margins, meaningful examples, and clear attribution.
+- All distributable educational videos must be **30–120 seconds inclusive**. A 24-second silent draft is not publication-ready.
+- Every video must contain narration **or** an audible licensed/original soundtrack (both preferred where appropriate). Narration should be intelligible; music must not overpower speech; provide a full transcript and accessible subtitles.
+- If a temporary synthetic voice is used, label it as a production draft rather than claiming studio-grade or human narration.
+- Each video/carousel is accompanied by a substantive, fact-checked **written post**, with platform-appropriate opening, explanation, research link, and restrained hashtags.
+- Final caption, soundtrack, narration, transcript, original media, target account, and exact publishing time all require editorial review.
 
 ## Content quality gates
 1. Ground statements in published research or primary documentation; link to https://ahmadib.onrender.com and the precise supporting article.
@@ -24,7 +29,7 @@ Purpose: build international-facing, evidence-led cybersecurity publications. Th
 ## First-week review batch
 - IG-01: Android Security Toolkit; proposed 2026-10-19 14:00 Africa/Lagos; three redesigned white carousel slides.
 - IG-02: Exported Android components; proposed 2026-10-21 14:00 Africa/Lagos; three redesigned white carousel slides.
-- TT-03: API authorization short; proposed 2026-10-23 10:00 Africa/Lagos; silent ~24-second white vertical video pending review.
-- YT-04: Same concept adapted for YouTube Shorts; proposed 2026-10-23 16:00 Africa/Lagos; silent video pending review.
+- TT-03: API authorization educational video; proposed 2026-10-23 10:00 Africa/Lagos; ~103-second white vertical video with synthetic voiceover, original ambient music and captions; pending review.
+- YT-04: Same narrated and subtitled educational concept adapted for YouTube Shorts; proposed 2026-10-23 16:00 Africa/Lagos; pending review.
 
-No Render deployment or Metricool scheduling is authorized by this file. Production assets remain offline until reviewed.
+Video or creative preference approval is not social-publication authorization. The owner must separately approve the final caption, edited media, destination and exact date/time for each item. No Render deployment or Metricool scheduling is authorized by this file. Production assets remain offline until reviewed.
