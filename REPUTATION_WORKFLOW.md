@@ -66,3 +66,7 @@ The site assets live under `publication/`; the generator is **idempotent**. The 
 - A published static page does not prove a vulnerability finding.
 - Research and marketing must both accurately distinguish a tutorial, an observation, a candidate risk and a confirmed result.
 - Never claim social posts are scheduled without a returned Metricool post record.
+
+## Approved-auto distribution (October 15, 2026)
+
+Selected policy: **explicit per-post approval → automatic publication at the confirmed scheduled time**. Facebook remains blocked; LinkedIn remains unconnected. Review the four pending posts at `editorial/metricool_first_batch.json` and the gate in `scripts/metricool_approved_auto.py`. No repo source performs Metricool publishing, and PR #2 is not a release approval.

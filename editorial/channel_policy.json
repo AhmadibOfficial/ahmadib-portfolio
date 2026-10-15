@@ -30,5 +30,22 @@
       "verified_personal": true,
       "requires_media": true
     }
-  }
+  },
+  "publishing_mode": "approved-auto",
+  "automatic_delivery_after_explicit_approval": true,
+  "unattended_approval_enabled": false,
+  "review_requirements": [
+    "accurate_caption",
+    "approved_visual",
+    "verified_personal_destination",
+    "confirmed_local_date_and_time",
+    "disclosure_clearance"
+  ],
+  "eligible_personal_networks": [
+    "instagram",
+    "tiktok",
+    "youtube"
+  ],
+  "approval_record_location": "local_only_not_committed",
+  "remote_connector_write_enabled_in_repo": false
 }

@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "batch_id": "AHMADIB-FIRST-2026-W43",
+  "created_date": "2026-10-15",
+  "brand_id": "7445168",
+  "timezone": "Africa/Lagos",
+  "policy": "approved-auto",
+  "required_approval": "each post caption+media+destination+date+time",
+  "status": "PENDING_OWNER_APPROVAL",
+  "items": [
+    {
+      "id": "AB-20261019-IG-01",
+      "article_slug": "android-security-toolkit",
+      "publication_time": "2026-10-19T14:00:00",
+      "networks": [
+        "instagram"
+      ],
+      "content_type": "CAROUSEL",
+      "media_type": "image",
+      "media_count": 3,
+      "title": "Scanner output is not proof",
+      "caption": "A scanner warning is a starting point—not proof of a vulnerability.\n\nI'm building ahmad-sec, an experimental Android security CLI for authorized APK reconnaissance. My focus is reproducible observations, meaningful validation, and clear limitations.\n\nThe important question is not just what a tool flags, but what a permitted investigation can actually demonstrate.\n\nFull research note: https://ahmadib.onrender.com/articles/android-security-toolkit.html\n\n#AndroidSecurity #AppSec #SecurityResearch #OpenSource",
+      "media_files": [
+        "01_toolkit_slide_01.png",
+        "01_toolkit_slide_02.png",
+        "01_toolkit_slide_03.png"
+      ],
+      "brand_id": "7445168",
+      "timezone": "Africa/Lagos",
+      "workflow": "approved-auto",
+      "target_url": "https://ahmadib.onrender.com/articles/android-security-toolkit.html",
+      "source_policy": "educational; no third-party unpatched disclosure",
+      "content_review": "PENDING",
+      "asset_review": "PENDING",
+      "channel_review": "PENDING",
+      "schedule_review": "PENDING",
+      "owner_approved": false,
+      "approved_at": null,
+      "media_uploaded": false,
+      "metricool_status": "OFFLINE_DRAFT",
+      "remote_post_id": null,
+      "auto_publish_after_approval": true,
+      "publication_approved": false,
+      "auto_publish_currently_allowed": false
+    },
+    {
+      "id": "AB-20261021-IG-02",
+      "article_slug": "exported-android-components",
+      "publication_time": "2026-10-21T14:00:00",
+      "networks": [
+        "instagram"
+      ],
+      "content_type": "CAROUSEL",
+      "media_type": "image",
+      "media_count": 3,
+      "title": "Exported is not automatically exploitable",
+      "caption": "If an Android component is exported, does that make the application vulnerable? Not automatically.\n\nReachability matters, but so do permissions, actual behavior, and whether sensitive functionality can be accessed without authorization.\n\nA configuration flag is an observation. A security finding needs reproducible impact in an authorized test.\n\nRead the field note: https://ahmadib.onrender.com/articles/exported-android-components.html\n\n#AndroidSecurity #MobileAppSec #SecureCoding",
+      "media_files": [
+        "02_exported_slide_01.png",
+        "02_exported_slide_02.png",
+        "02_exported_slide_03.png"
+      ],
+      "brand_id": "7445168",
+      "timezone": "Africa/Lagos",
+      "workflow": "approved-auto",
+      "target_url": "https://ahmadib.onrender.com/articles/exported-android-components.html",
+      "source_policy": "educational; no third-party unpatched disclosure",
+      "content_review": "PENDING",
+      "asset_review": "PENDING",
+      "channel_review": "PENDING",
+      "schedule_review": "PENDING",
+      "owner_approved": false,
+      "approved_at": null,
+      "media_uploaded": false,
+      "metricool_status": "OFFLINE_DRAFT",
+      "remote_post_id": null,
+      "auto_publish_after_approval": true,
+      "publication_approved": false,
+      "auto_publish_currently_allowed": false
+    },
+    {
+      "id": "AB-20261023-TT-03",
+      "article_slug": "api-authorization-boundaries",
+      "publication_time": "2026-10-23T10:00:00",
+      "networks": [
+        "tiktok"
+      ],
+      "content_type": "SHORT",
+      "media_type": "video",
+      "media_count": 1,
+      "title": "A hidden button does not protect an API",
+      "caption": "Hiding a feature in the app doesn't protect an API. Authentication answers who a user is. Authorization decides what that user may access.\n\nAn API must enforce access rights for each sensitive resource operation.\n\nMore: https://ahmadib.onrender.com/articles/api-authorization-boundaries.html\n\n#APISecurity #AppSec #MobileSecurity",
+      "media_files": [
+        "03_api_authorization_short_draft.mp4"
+      ],
+      "brand_id": "7445168",
+      "timezone": "Africa/Lagos",
+      "workflow": "approved-auto",
+      "target_url": "https://ahmadib.onrender.com/articles/api-authorization-boundaries.html",
+      "source_policy": "educational; no third-party unpatched disclosure",
+      "content_review": "PENDING",
+      "asset_review": "PENDING",
+      "channel_review": "PENDING",
+      "schedule_review": "PENDING",
+      "owner_approved": false,
+      "approved_at": null,
+      "media_uploaded": false,
+      "metricool_status": "OFFLINE_DRAFT",
+      "remote_post_id": null,
+      "auto_publish_after_approval": true,
+      "publication_approved": false,
+      "auto_publish_currently_allowed": false
+    },
+    {
+      "id": "AB-20261023-YT-04",
+      "article_slug": "api-authorization-boundaries",
+      "publication_time": "2026-10-23T16:00:00",
+      "networks": [
+        "youtube"
+      ],
+      "content_type": "SHORT",
+      "media_type": "video",
+      "media_count": 1,
+      "title": "Authentication Is Not Authorization | Mobile API Security",
+      "caption": "A hidden mobile UI control does not protect an API. Server-side resource authorization matters. Educational example only.\n\nFull article: https://ahmadib.onrender.com/articles/api-authorization-boundaries.html\n\n#Shorts #APISecurity #AppSec",
+      "media_files": [
+        "03_api_authorization_short_draft.mp4"
+      ],
+      "brand_id": "7445168",
+      "timezone": "Africa/Lagos",
+      "workflow": "approved-auto",
+      "target_url": "https://ahmadib.onrender.com/articles/api-authorization-boundaries.html",
+      "source_policy": "educational; no third-party unpatched disclosure",
+      "content_review": "PENDING",
+      "asset_review": "PENDING",
+      "channel_review": "PENDING",
+      "schedule_review": "PENDING",
+      "owner_approved": false,
+      "approved_at": null,
+      "media_uploaded": false,
+      "metricool_status": "OFFLINE_DRAFT",
+      "remote_post_id": null,
+      "auto_publish_after_approval": true,
+      "publication_approved": false,
+      "auto_publish_currently_allowed": false
+    }
+  ]
+}

@@ -18,6 +18,8 @@ jobs:
           python-version: '3.11'
       - name: Reject unapproved / embargoed content
         run: python scripts/reputation_pipeline.py validate
+      - name: Validate approved-auto channel and approval guards
+        run: python scripts/metricool_approved_auto.py validate
       - name: Ensure generated site matches editorial registry
         run: python scripts/reputation_pipeline.py check
       - name: Run publication safety tests
