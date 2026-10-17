@@ -47,5 +47,31 @@
     "youtube"
   ],
   "approval_record_location": "local_only_not_committed",
-  "remote_connector_write_enabled_in_repo": false
+  "remote_connector_write_enabled_in_repo": false,
+  "standing_owner_authorization": {
+    "granted_on": "2026-10-17",
+    "requires_per_post_approval": false,
+    "scope": "Routine educational cybersecurity posts to verified personal Instagram/TikTok/YouTube",
+    "exclusions": [
+      "unverified claims",
+      "private evidence",
+      "embargoed findings",
+      "third party confidential materials",
+      "unlicensed media"
+    ]
+  },
+  "routine_quality_gates": [
+    "fact_checked_sources",
+    "disclosure_cleared_or_not_applicable",
+    "rights_cleared_original_media",
+    "verified_destination",
+    "white_navy_blue_editorial",
+    "written_caption",
+    "video_30_to_120_seconds_with_audio_and_subtitles",
+    "duplicate_check",
+    "correct_local_time",
+    "platform_policy_compliance"
+  ],
+  "auto_publish_task": "Weekly Monday recurring task may publish quality-eligible routine posts using authenticated Metricool integration; no per-post approval",
+  "first_batch_status": "Four auto-publish posts scheduled and verified Oct 17; see editorial/metricool_scheduled_receipt.json; older local batch is historical offline fixture"
 }
