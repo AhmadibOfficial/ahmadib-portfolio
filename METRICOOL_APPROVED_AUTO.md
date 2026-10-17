@@ -1,34 +1,30 @@
-# Ahmad-IB Metricool approved-auto workflow
+# Ahmad-IB automatic publishing — standing user authorization
 
-**Confirmed workspace:** `ahmadibofficial` / brand `7445168`, account `ahmadibofficial@gmail.com`, timezone `Africa/Lagos`.
+**Updated October 17, 2026.** The user explicitly instructed: **do not wait for approval; publish automatically.** This supersedes routine per-post approval requirements. Only content passing objective safety and quality checks is eligible for automatic scheduling. The user's prior approval also covered the four already-scheduled V3 posts.
 
-**Meaning of approved-auto:** The user separately approves the exact caption, imagery/video, destination, date and time for every individual post. Once approved, a scheduled Metricool post may use `draft:false` and `autoPublish:true` to publish on that approved schedule. **Selecting approved-auto is not approval of the batch or any post.**
+## Confirmed account and allowed networks
 
-## Current approved destinations for review
-Instagram `@ahmadib_official`, TikTok `@ahmadibofficial`, and connected personal YouTube. All need original, reviewed media.
+- Brand: `ahmadibofficial` (`7445168`), email `ahmadibofficial@gmail.com`, timezone `Africa/Lagos`.
+- Allowed personal channels: Instagram `@ahmadib_official`, TikTok `@ahmadibofficial`, and the verified connected personal YouTube channel.
+- Facebook remains explicitly excluded due to its overlapping MetaAutomate page ID; LinkedIn stays excluded until connected and verified.
 
-Facebook is **blocked** because its page ID overlaps the earlier MetaAutomate workspace. LinkedIn is **blocked** because no personal LinkedIn connection appears in the Metricool workspace.
+## Standing auto-publish policy
 
-## Proposed first batch (Nigeria local time)
-- **Oct 19, 14:00:** Instagram carousel about Android toolkit, original 3-slide visual
-- **Oct 21, 14:00:** Instagram carousel about exported components, original 3-slide visual
-- **Oct 23, 10:00:** TikTok educational short on API authorization
-- **Oct 23, 16:00:** YouTube short on API authorization
+Do not request additional approval for ordinary researched cybersecurity awareness, practical tutorials, existing public journal articles, or educational explanations. Before publication confirm: accurate primary sources, a live article link, non-duplicated schedule, right brand, finished original or licensed media, clear and useful written caption, readable educational graphics, and platform policy compliance. Keep visuals white/navy/blue. All videos must be 30–120 seconds with narration or soundtrack and subtitles.
 
-These times use Metricool posting-time suggestions. All four records in `editorial/metricool_first_batch.json` are `PENDING_OWNER_APPROVAL`. The six graphics and silent 24-second faceless draft video are supplied separately in the local review pack; they are not uploaded or publicly hosted.
+Unpublished security vulnerabilities, private data, customer findings, unreleased exploits, secrets, copyrighted media without rights, or uncertain evidence are **not** covered by standing authorization. Keep such items private pending appropriate authorization/disclosure clearance. If any check fails, skip the item and report the blocker instead of pretending to publish.
 
-## Manual launch gates
-1. Check the article URL is live and facts are sourced. Never publish confidential or unpatched third-party vulnerabilities without authorization and disclosure clearance.
-2. Review each full caption and media file, verify the correct personal channel, and accept the exact local date/time.
-3. Require the owner's explicit approval identifying the selected post(s) and final media. Any modifications require reapproval.
-4. Verify Metricool brand ID **7445168** and obtain a genuine public media URL (or supported user-upload attachment). Never invent a URL.
-5. Only **after** approval, schedule with Metricool's connected publishing action, using the exact approved settings and `autoPublish:true`; verify a returned planner URL/post ID.
-6. Verify actual publication afterwards and collect analytics. If any requirement fails, keep the post offline as a draft.
+## Confirmed scheduled posts
 
-GitHub contains only a review manifest and offline validations: **no Metricool tokens, network writes or approvals**. Run:
-```bash
-python scripts/metricool_approved_auto.py validate
-python -m unittest discover -s tests -v
-```
+| Post | Channel | Scheduled Africa/Lagos | Auto publish |
+|---|---|---|---|
+| IG-01 | Instagram | 2026-10-19 14:00 | Yes |
+| IG-02 | Instagram | 2026-10-21 14:00 | Yes |
+| TT-03 | TikTok | 2026-10-23 10:00 | Yes |
+| YT-04 | YouTube Shorts | 2026-10-23 16:00 | Yes |
 
-PR #2 remains draft, Render auto-deploy disabled, and nothing here triggers a deployment or scheduled post.
+Metricool was rechecked October 17: all four have real IDs, uploaded media, `autoPublish:true` and `PENDING` publication status. They need no more owner approval and should retain the current schedule. Exact IDs and UUIDs are in `editorial/metricool_scheduled_receipt.json`. The original `editorial/metricool_first_batch.json` remains a **historical offline fixture** and must not be used to decide whether these posts are scheduled.
+
+## Execution boundaries
+
+The recurring Monday reputation task is configured to prepare and schedule up to three new eligible posts weekly using the Metricool integration if the runtime supports real file/media creation and social connector actions. Each scheduling result must be verified by a Metricool UUID/receipt. An unavailable connector or missing media blocks that post. GitHub source CI only validates; it contains no publishing secrets or network writes. PR #2 remains draft and Render auto-deployment remains off.
