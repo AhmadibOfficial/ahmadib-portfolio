@@ -1,0 +1,43 @@
+{
+  "source": "Metricool getScheduledPosts verified 2026-10-17",
+  "metricool_brand": "ahmadibofficial",
+  "brand_id": "7445168",
+  "timezone": "Africa/Lagos",
+  "status": "PENDING_PUBLICATION",
+  "all_posts_autoPublish": true,
+  "notes": "PENDING means scheduled, not awaiting human approval. The earlier offline draft manifest is historical and is not the current remote state.",
+  "posts": [
+    {
+      "id": "IG-01",
+      "network": "instagram",
+      "date": "2026-10-19T14:00:00",
+      "metricool_post_id": 397095122,
+      "uuid": "-2655666168381618589",
+      "media_count": 3
+    },
+    {
+      "id": "IG-02",
+      "network": "instagram",
+      "date": "2026-10-21T14:00:00",
+      "metricool_post_id": 397095320,
+      "uuid": "722556105379627493",
+      "media_count": 3
+    },
+    {
+      "id": "TT-03",
+      "network": "tiktok",
+      "date": "2026-10-23T10:00:00",
+      "metricool_post_id": 397094012,
+      "uuid": "1578236640511412742",
+      "media_count": 1
+    },
+    {
+      "id": "YT-04",
+      "network": "youtube",
+      "date": "2026-10-23T16:00:00",
+      "metricool_post_id": 397094887,
+      "uuid": "4361015710421897099",
+      "media_count": 1
+    }
+  ]
+}
