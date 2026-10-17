@@ -15,7 +15,7 @@ Purpose: build international-facing, evidence-led cybersecurity publications. Th
 - Every video must contain narration **or** an audible licensed/original soundtrack (both preferred where appropriate). Narration should be intelligible; music must not overpower speech; provide a full transcript and accessible subtitles.
 - If a temporary synthetic voice is used, label it as a production draft rather than claiming studio-grade or human narration.
 - Each video/carousel is accompanied by a substantive, fact-checked **written post**, with platform-appropriate opening, explanation, research link, and restrained hashtags.
-- Final caption, soundtrack, narration, transcript, original media, target account, and exact publishing time all require editorial review.
+- Routine educational posts may be released without a separate approval message after automated factual, rights, channel and media quality checks; sensitive or embargoed security disclosures are excluded from standing authorization.
 
 ## Content quality gates
 1. Ground statements in published research or primary documentation; link to https://ahmadib.onrender.com and the precise supporting article.
@@ -23,13 +23,13 @@ Purpose: build international-facing, evidence-led cybersecurity publications. Th
 3. Use only test environments owned or authorized; keep unapproved third-party vulnerability details private.
 4. Verify spelling, titles, claims, call-to-action links, and legibility before publication.
 5. Keep Facebook excluded until page identity is verified and LinkedIn excluded until connected.
-6. Under approved-auto, no post enters Metricool's auto-publish schedule without *individual* approval covering the exact caption, final media, target network, and local date/time.
-7. Redesign approval is not publication approval. All first-batch items remain PENDING_OWNER_APPROVAL until explicitly approved.
+6. Under auto-publication, posts enter Metricool only after validating the factual caption, final original/licensed media, target personal network, non-duplicated local schedule, video length and rights/privacy gates. No per-post owner approval is required for routine educational material.
+7. The first four posts were approved and scheduled with autoPublish=true on October 15; verified pending publication October 17. The old first-batch review manifest is a historical offline fixture.
 
 ## First-week review batch
 - IG-01: Android Security Toolkit; proposed 2026-10-19 14:00 Africa/Lagos; three redesigned white carousel slides.
 - IG-02: Exported Android components; proposed 2026-10-21 14:00 Africa/Lagos; three redesigned white carousel slides.
-- TT-03: API authorization educational video; proposed 2026-10-23 10:00 Africa/Lagos; ~103-second white vertical video with synthetic voiceover, original ambient music and captions; pending review.
+- TT-03: API authorization educational video; proposed 2026-10-23 10:00 Africa/Lagos; ~103-second white vertical video with synthetic voiceover, original ambient music and captions; scheduled and pending publication.
 - YT-04: Same narrated and subtitled educational concept adapted for YouTube Shorts; proposed 2026-10-23 16:00 Africa/Lagos; pending review.
 
-Video or creative preference approval is not social-publication authorization. The owner must separately approve the final caption, edited media, destination and exact date/time for each item. No Render deployment or Metricool scheduling is authorized by this file. Production assets remain offline until reviewed.
+The user's October 17 standing instruction authorizes routine auto-publication after quality and disclosure clearance, not unrestricted publication of sensitive research or changes to the live Render site.
