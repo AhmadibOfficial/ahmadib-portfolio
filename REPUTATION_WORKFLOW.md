@@ -1,6 +1,6 @@
 # Ahmad-IB: Research → Journal → Metricool
 
-This is a **review-first** workflow; it does not provide autonomous external publishing. Everything runs on Python 3.11+ using the standard library. Nothing requires a database, new hosting, or additional paid subscription.
+This is an evidence- and rights-gated workflow. As of October 17, 2026 the owner has authorized automatic Metricool scheduling of routine public educational content without individual review prompts. The repository's static build and offline scripts themselves do not perform social network writes. Everything runs on Python 3.11+ using the standard library. Nothing requires a database, new hosting, or additional paid subscription.
 
 ## Current verified systems
 
@@ -8,15 +8,15 @@ This is a **review-first** workflow; it does not provide autonomous external pub
 |---|---|---|
 | GitHub | `AhmadibOfficial/ahmadib-portfolio`, `publication-render` | Source of truth for public journal |
 | Render | `ahmadib.onrender.com` | `autoDeploy=no`, separate manual deployment |
-| Metricool | Workspace `ahmadibofficial`, brand `7445168` | Draft review only; no network/API publishing logic in repo |
+| Metricool | Workspace `ahmadibofficial`, brand `7445168` | Four posts confirmed scheduled in Metricool; no network/API publishing logic in repo |
 | LinkedIn | Not connected to Metricool | Never select without reconnection & verification |
 | Facebook | Shared ID with MetaAutomate workspace | Explicitly blocked |
-| Instagram | `@ahmadib_official` connected | Original media + manual approval needed |
-| TikTok / YouTube | Connected | Original approved video + manual approval needed |
+| Instagram | `@ahmadib_official` connected | Original media + quality checks |
+| TikTok / YouTube | Connected | 30–120 second narrated/soundtracked video + subtitles + written post |
 
 ## Editorial state machine
 
-`IDEA → PRIVATE RESEARCH → FACT CHECK → DISCLOSURE REVIEW → WEBSITE APPROVED → GITHUB REVIEW → RENDER DEPLOY → SOCIAL DRAFT → CHANNEL/MEDIA APPROVAL → METRICOOL REVIEW → PUBLISHED → MEASURED`
+`IDEA → PRIVATE RESEARCH → FACT CHECK → DISCLOSURE CHECK → PUBLIC JOURNAL ARTICLE → VERIFIED SOCIAL ASSETS → AUTOMATIC QUALITY CHECK → METRICOOL SCHEDULE → PUBLISHED → MEASURED`
 
 ### First: protect source research
 
@@ -36,8 +36,8 @@ Create embargoed or customer-specific research only in an approved private works
 
 1. Read `outbox/metricool_review_queue.json` and the existing twelve approved-calendar *draft* ideas in the separate reputation pack.
 2. Choose one personal channel, verify its handle/account and media requirements, review the final caption and schedule.
-3. Only when the user explicitly approves a particular caption, media, date, account, and channel, use the connected Metricool integration to create a review-stage draft/post.
-4. Metricool's review feature may require a team-management plan; if unavailable, retain draft-only status and use a manual approval step. This repo contains **no Metricool credentials** and makes no Metricool API calls.
+3. Routine educational posts may be scheduled automatically under the owner's standing October 17 authorization after source, safety, original media, caption, destination, duplicate and platform checks. A sensitive real-world finding still requires its independent disclosure authorization and clearance.
+4. Use Metricool with autoPublish=true and verify the resulting post UUID and planner URL. Do not invoke paid team-management review for routine posts. If the authenticated integration or necessary media is unavailable, skip publishing and report the blocker. This repo contains **no Metricool credentials** and makes no Metricool API calls.
 5. Never auto-post to Facebook while its ID overlaps the company workspace. LinkedIn requires connection to the personal profile before enabling.
 6. Track the published post URL, article canonical URL, reach, clicks and qualified inbound opportunities using verified Metricool analytics.
 
@@ -56,7 +56,7 @@ The site assets live under `publication/`; the generator is **idempotent**. The 
 ## Current baseline
 
 - Three already-published educational articles are listed in the registry with website approval reflecting their *existing public state*, not a new authorization of future findings.
-- None of these articles has a social publication approval. The generated queue is marked `DRAFT_REVIEW` with publishing disabled.
+- The historical offline review queue is not the current social calendar. Four real posts were scheduled and verified in Metricool; see `editorial/metricool_scheduled_receipt.json`.
 - `.github/workflows/editorial-checks.yml` runs on PRs to `publication-render`; it has only read permissions and no deployment or social write steps.
 - CI is advisory until repository branch protection is independently configured by the owner.
 
@@ -67,6 +67,6 @@ The site assets live under `publication/`; the generator is **idempotent**. The 
 - Research and marketing must both accurately distinguish a tutorial, an observation, a candidate risk and a confirmed result.
 - Never claim social posts are scheduled without a returned Metricool post record.
 
-## Approved-auto distribution (October 15, 2026)
+## Automatic quality-gated distribution (October 17, 2026)
 
-Selected policy: **explicit per-post approval → automatic publication at the confirmed scheduled time**. Facebook remains blocked; LinkedIn remains unconnected. Review the four pending posts at `editorial/metricool_first_batch.json` and the gate in `scripts/metricool_approved_auto.py`. No repo source performs Metricool publishing, and PR #2 is not a release approval.
+The owner has granted standing permission for routine, sourced educational posts to be published automatically after quality and rights checks. Do not ask for per-post approval. Keep Facebook and LinkedIn blocked, and never disclose private or embargoed findings. The four V3 posts already have attached media and autoPublish=true in Metricool; exact dates and UUIDs are in `editorial/metricool_scheduled_receipt.json`. The Monday publishing automation may generate and schedule future posts when its connected tools and finalized licensed media are available, but must never invent a success. PR #2 is still a draft and does not authorize Render deployment.
