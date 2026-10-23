@@ -45,3 +45,10 @@ assert.ok(feed.includes("<rss"),"RSS feed missing");
 assert.ok(sitemap.includes("https://ahmadib.onrender.com/"),"Sitemap canonical missing");
 for(const id of articles)assert.ok(sitemap.includes(id+".html"),"Sitemap article missing: "+id);
 console.log("PASS personal site: 7 projects, 4 journal articles, 3 ventures, 2 verified download links.");
+
+// Verify all seven user-supplied workflow illustrations and local image asset.
+assert.equal((html.match(/class="workflow-image workflow-image--/g) || []).length, 7, "Expected seven workflow photographs");
+assert.ok(css.includes("./workflow-gallery.svg"), "Broken workflow asset path in CSS");
+const sprite = read("assets/workflow-gallery.svg");
+assert.ok(sprite.includes("data:image/webp;base64,") && sprite.length > 5000, "Workflow photo sprite missing");
+assert.ok(html.includes("Illustrative workflow photography"), "Missing illustrative-image disclosure");
