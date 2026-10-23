@@ -1,0 +1,26 @@
+name: Portfolio validation
+on:
+  push:
+    branches: [main, v2-professionalization, feature/portfolio-v3-projects-downloads]
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'css/**'
+      - 'js/**'
+      - 'assets/**'
+      - 'scripts/**'
+      - '.github/workflows/portfolio-validation.yml'
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: node --check js/script.js
+      - name: Validate static site links, sections and downloads
+        run: node scripts/verify-site.mjs
