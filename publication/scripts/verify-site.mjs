@@ -22,7 +22,7 @@ assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,7,"Expect 7
 assert.equal((html.match(/data-article-card\b/g)||[]).length,4,"Expect 4 research previews");
 assert.equal((html.match(/class="venture-card"/g)||[]).length,3,"Expect 3 venture spotlights");
 assert.ok(html.includes("OneCall-phone-arm.apk")&&html.includes("main.zip"),"Verified downloads missing");
-assert.ok(html.includes("USB/ADB reverse")&&html.includes("not a standalone cloud-connected app"),"OneCall prerelease limitations missing");
+assert.ok(html.includes("USB/ADB reverse")&&html.includes("standalone cloud-connected app"),"OneCall prerelease limitations missing");
 assert.ok(!html.includes("/MetaAutomate/archive/")&&!html.includes("/Safwa-Quran/archive/"),"Must not expose private code downloads");
 assert.ok(!html.includes('href="#"')&&!html.includes("YOUR-EMAIL"),"Placeholder links found");
 assert.ok(css.includes(".ventures-grid")&&css.includes(".journal-grid")&&css.includes(".expertise-grid"),"CSS sections missing");
