@@ -1,0 +1,29 @@
+name: Personal website validation
+
+on:
+  push:
+    branches:
+      - feature/personal-site-multidisciplinary-2026
+      - publication-render
+  pull_request:
+    branches:
+      - publication-render
+    paths:
+      - 'publication/**'
+      - '.github/workflows/personal-site-validation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  static-site-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: node --check publication/assets/app.js
+      - name: Check markup, links, artifacts and research library
+        run: node publication/scripts/verify-site.mjs

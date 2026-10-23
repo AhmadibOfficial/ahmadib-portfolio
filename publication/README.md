@@ -1,31 +1,45 @@
-# Ahmad-IB Security Research Journal
+# Ahmad Ibrahim — personal portfolio & Security Research Journal
 
-A publication website for Ahmad Ibrahim, deployed from the `publication-render` branch of `ahmadib-portfolio` to a dedicated Render static site.
+This site is served at **https://ahmadib.onrender.com/** from the **publication-render** branch of AhmadibOfficial/ahmadib-portfolio with Render publish path **publication/**.
 
-## Contents
-- `index.html`: editorial homepage with client-side category and text filtering
-- `articles/`: three educational field notes (not third-party vulnerability disclosures)
-- `assets/style.css`: responsive, accessible visual system
-- `assets/app.js`: progressive search/filter enhancement, no external requests
-- `feed.xml`: RSS 2.0
-- `sitemap.xml`: publication sitemap
+## Purpose
 
-## Run locally
+A professional personal website with software engineering, application security, AI/automation, product design, verified project links, entrepreneurship and research writing. The site is an original HTML/CSS/JavaScript portfolio, without a framework or backend dependency.
 
-From the parent directory that contains `publication/`:
+## Features
 
-```bash
-python3 -m http.server 8000
-```
+- Home, About, Expertise, Projects, MVP Downloads, Research Journal, Ventures, Process and Contact
+- Responsive design with mobile navigation and accessible skip link
+- Project cards and filter buttons
+- Public artifacts only: OneCall USB Android phone pilot APK and Android Security Toolkit Python source
+- Four preserved security-research articles, RSS feed and existing canonical article URLs
+- Sitemap, favicon and social metadata
+- No tracking scripts, passwords, external JS dependencies or private repo contents
 
-Open `http://localhost:8000/publication/`. Render publishes the `publication/` folder as the website root.
+## Important distribution limitations
 
-## Publication controls
+- **OneCall** phone pilot is a **debug-signed prerelease** requiring a local backend and USB ADB reverse forwarding, not a standalone mobile service. Read official release notes and verify the checksum before installing.
+- **Android Security Toolkit** is an open-source CLI source download (Python 3.11+), **not an APK**. Scan only authorized apps.
+- **MetaAutomate** has its company website at https://metaautomate.onrender.com/; the private platform has no downloadable MVP published here.
+- **Safwa Quran**, Security Research OS and the IMarket/Nayvelo concepts have no verified public installable release advertised here.
+- An unverified CV or unreviewed penetration-testing report is not published.
 
-- Content is educational and does not assert unconfirmed vulnerabilities.
-- No analytics, forms, cookies or credential collection. No third-party JavaScript.
-- Static HTML/CSS/JS with no runtime secrets, tracking scripts, external font loaders, or paid packages.
-- Review all external links, author details, claims and copyright before merging.
-- Update the dedicated branch after review; verify the live Render URL after each deployment.
-- Update `feed.xml`, `sitemap.xml` and the homepage cards whenever publishing a new article.
-- Maintain responsible disclosure and embargo requirements before publishing research.
+## Local test
+
+From the repo root:
+
+    node --check publication/assets/app.js
+    node publication/scripts/verify-site.mjs
+    cd publication && python3 -m http.server 8000
+
+Open http://localhost:8000/ and test navigation, project filters, journal filters/search, responsive design and public download descriptions. The content stays visible when JavaScript is disabled.
+
+## Deployment
+
+Render configuration: service **ahmadib**, repo AhmadibOfficial/ahmadib-portfolio, branch publication-render, publish path publication, automatic deployments **disabled**.
+
+Feature branch changes must pass CI and review. Merge into publication-render and explicitly trigger a Render deployment; merging without deploying does not change the live site. The GitHub Pages portfolio at https://ahmadibofficial.github.io/ahmadib-portfolio/ is a separate deployment from main and is not affected by this process.
+
+## Research publishing safety
+
+Preserve /articles/, /feed.xml, /sitemap.xml and existing links. New research is verified and distinguished from unvalidated hypotheses; protect private targets, embargoed findings and PII. Updates to articles should go through the journal's own content/disclosure validation process.
