@@ -37,3 +37,10 @@ for (const [name,content] of [["HTML",html],["CSS",css],["JavaScript",js]]) {
   assert.ok(!/^\s*\x60\x60\x60/m.test(content), name + " contains copied Markdown code fences");
 }
 console.log("Portfolio static validation passed: " + projectCount + " projects; " + attrs.length + " references; " + requiredSections.length + " sections.");
+
+// Verify all seven user-supplied workflow illustrations and local image asset.
+assert.equal((html.match(/class="workflow-image workflow-image--/g) || []).length, 7, "Expected seven workflow photographs");
+assert.ok(css.includes("../assets/workflow-gallery.svg"), "Broken workflow asset path in CSS");
+const sprite = read("assets/workflow-gallery.svg");
+assert.ok(sprite.includes("data:image/webp;base64,") && sprite.length > 5000, "Workflow photo sprite missing");
+assert.ok(html.includes("Illustrative workflow photography"), "Missing illustrative-image disclosure");
