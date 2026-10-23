@@ -32,12 +32,13 @@ The OneCall repository has a proprietary license; linking its intentionally publ
 
 From the repository root:
 
-\`\`\`bash
+```bash
 python3 -m http.server 8000
 # Open http://localhost:8000
 node --check js/script.js
+node scripts/verify-site.mjs
 git diff --check
-\`\`\`
+```
 
 Confirm keyboard navigation, mobile menu, project filters, source/download links, responsive layout and readable content with JavaScript disabled.
 
