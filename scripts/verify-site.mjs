@@ -1,0 +1,39 @@
+import assert from "node:assert/strict";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+const root = resolve(import.meta.dirname, "..");
+const read = (path) => readFileSync(resolve(root, path), "utf8");
+const html = read("index.html");
+const css = read("css/style.css");
+const js = read("js/script.js");
+const projectCount = (html.match(/class="project-card(?:\s|")/g) ?? []).length;
+const requiredSections = ["home","about","expertise","projects","downloads","approach","contact"];
+
+assert.match(html, /<!doctype html>/i);
+assert.equal(projectCount, 7, "Expected seven real project cards");
+for (const id of requiredSections) assert.ok(html.includes('id="' + id + '"'), "Missing section: " + id);
+for (const file of ["css/style.css","js/script.js","assets/favicon.svg"]) assert.ok(existsSync(resolve(root,file)), "Missing asset " + file);
+assert.ok(css.includes(".project-card") && css.includes(".downloads-section"), "Missing core CSS");
+assert.ok(js.includes("data-filter") || js.includes(".filter-button"), "Missing filter JavaScript");
+assert.ok(html.includes("OneCall-phone-arm.apk"), "OneCall pilot link missing");
+assert.ok(html.includes("android-security-toolkit/archive/refs/heads/main.zip"), "Toolkit source link missing");
+assert.ok(!html.includes("Ahmad_Ibrahim_CV"), "Unverified CV link must not return");
+assert.ok(!html.includes('href="#"'), "Dead placeholder link found");
+assert.ok(!html.includes("/MetaAutomate/archive/"), "Private MetaAutomate source must not be linked");
+assert.ok(!html.includes("/Safwa-Quran/archive/"), "Private Safwa source must not be linked");
+
+const attrs = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)];
+for (const match of attrs) {
+  const link = match[1];
+  if (/^(https?:|mailto:|#)/.test(link)) continue;
+  const local = link.split(/[?#]/, 1)[0];
+  assert.ok(existsSync(resolve(root,local)), "Broken local asset: " + local);
+}
+for (const match of html.matchAll(/href="#([^"]+)"/g)) {
+  assert.ok(html.includes('id="' + match[1] + '"'), "Broken in-page link " + match[1]);
+}
+for (const [name,content] of [["HTML",html],["CSS",css],["JavaScript",js]]) {
+  assert.ok(!/^\s*\x60\x60\x60/m.test(content), name + " contains copied Markdown code fences");
+}
+console.log("Portfolio static validation passed: " + projectCount + " projects; " + attrs.length + " references; " + requiredSections.length + " sections.");
