@@ -1,0 +1,47 @@
+import assert from "node:assert/strict";
+import {existsSync,readFileSync} from "node:fs";
+import {resolve,dirname} from "node:path";
+import {fileURLToPath} from "node:url";
+
+const folder=resolve(dirname(fileURLToPath(import.meta.url)),"..");
+const read=(name)=>readFileSync(resolve(folder,name),"utf8");
+const html=read("index.html"),css=read("assets/style.css"),js=read("assets/app.js");
+const articles=["intelligence-2026-10-17","android-security-toolkit","exported-android-components","api-authorization-boundaries"];
+const ids=["main","home","about","expertise","projects","research","downloads","ventures","approach","contact"];
+assert.match(html,/^<!doctype html>/i,"Missing HTML doctype");
+assert.match(html,/https:\/\/ahmadib\.onrender\.com\//,"Wrong personal site canonical");
+assert.match(html,/https:\/\/metaautomate\.onrender\.com\//,"MetaAutomate link missing");
+assert.ok(html.includes('href="feed.xml"'),"Preserve RSS discoverability");
+for(const id of ids)assert.ok(html.includes('id="'+id+'"'),"Missing #"+id);
+for(const id of articles){
+  assert.ok(existsSync(resolve(folder,"articles",id+".html")),"Missing journal article "+id);
+  assert.ok(html.includes('href="articles/'+id+'.html"'),"Missing article link "+id);
+}
+for(const asset of ["assets/style.css","assets/app.js","assets/favicon.svg","feed.xml","sitemap.xml","robots.txt","404.html"])assert.ok(existsSync(resolve(folder,asset)),"Missing asset "+asset);
+assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,7,"Expect 7 project showcases");
+assert.equal((html.match(/data-article-card\b/g)||[]).length,4,"Expect 4 research previews");
+assert.equal((html.match(/class="venture-card"/g)||[]).length,3,"Expect 3 venture spotlights");
+assert.ok(html.includes("OneCall-phone-arm.apk")&&html.includes("main.zip"),"Verified downloads missing");
+assert.ok(html.includes("USB/ADB reverse")&&html.includes("not a standalone cloud-connected app"),"OneCall prerelease limitations missing");
+assert.ok(!html.includes("/MetaAutomate/archive/")&&!html.includes("/Safwa-Quran/archive/"),"Must not expose private code downloads");
+assert.ok(!html.includes('href="#"')&&!html.includes("YOUR-EMAIL"),"Placeholder links found");
+assert.ok(css.includes(".ventures-grid")&&css.includes(".journal-grid")&&css.includes(".expertise-grid"),"CSS sections missing");
+assert.ok(js.includes("data-filter")||js.includes(".filter-button"),"Project filter script missing");
+assert.ok(js.includes("[data-article-search]"),"Journal filter script missing");
+const allIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+assert.equal(new Set(allIds).size,allIds.length,"Duplicate element ids");
+for(const href of html.matchAll(/\b(?:href|src)="([^"]+)"/g)){
+ const ref=href[1];
+ if(ref.startsWith("#")){assert.ok(allIds.includes(ref.slice(1)),"Missing anchor "+ref);continue;}
+ if(/^(https?:|mailto:|data:)/.test(ref))continue;
+ const name=ref.split(/[?#]/)[0];
+ if(name)assert.ok(existsSync(resolve(folder,name)),"Broken relative link "+name);
+}
+for(const name of ["index.html","assets/style.css","assets/app.js"]){
+  assert.ok(!/^\s*\x60{3}/m.test(read(name)),"Copied Markdown fence in "+name);
+}
+const feed=read("feed.xml"),sitemap=read("sitemap.xml");
+assert.ok(feed.includes("<rss"),"RSS feed missing");
+assert.ok(sitemap.includes("https://ahmadib.onrender.com/"),"Sitemap canonical missing");
+for(const id of articles)assert.ok(sitemap.includes(id+".html"),"Sitemap article missing: "+id);
+console.log("PASS personal site: 7 projects, 4 journal articles, 3 ventures, 2 verified download links.");
