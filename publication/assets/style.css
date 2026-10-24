@@ -130,3 +130,11 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 .hero-portrait-card.is-loaded .hero-portrait-image{opacity:1}
 @media(max-width:650px){.hero-portrait-card{width:min(100%,460px);min-height:0;border-radius:18px}}
 @media(prefers-reduced-motion:reduce){.hero-portrait-image{transition:none}}
+
+/* Hall-of-Fame research objective and VAILABLE document-productivity identity. */
+.cover-vailable{background:linear-gradient(135deg,#eaf2ff,#a7c7fb);color:#14365e}
+.cover-vailable .cover-word{font-size:clamp(2.3rem,3.4vw,3.1rem);letter-spacing:-.06em}
+.cover-vailable .cover-word small{color:#3f6393;letter-spacing:.18em}
+.research-mission{margin-top:34px;padding:32px 36px;border:1px solid #dce5f1;border-radius:18px;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:35px;background:#f3f7fe}
+.research-mission .overline{margin:0 0 8px}.research-mission h3{font-size:clamp(1.35rem,2.4vw,1.85rem);line-height:1.27;margin:0;letter-spacing:-.03em}.research-mission>p{color:var(--muted);font-size:.9rem;line-height:1.8;margin:0}
+@media(max-width:700px){.research-mission{grid-template-columns:1fr;gap:16px;padding:24px}}
