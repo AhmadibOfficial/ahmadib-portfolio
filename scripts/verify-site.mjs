@@ -11,7 +11,7 @@ const projectCount = (html.match(/class="project-card(?:\s|")/g) ?? []).length;
 const requiredSections = ["home","about","expertise","projects","downloads","approach","contact"];
 
 assert.match(html, /<!doctype html>/i);
-assert.equal(projectCount, 7, "Expected seven real project cards");
+assert.equal(projectCount, 8, "Expected seven real project cards");
 for (const id of requiredSections) assert.ok(html.includes('id="' + id + '"'), "Missing section: " + id);
 for (const file of ["css/style.css","js/script.js","assets/favicon.svg"]) assert.ok(existsSync(resolve(root,file)), "Missing asset " + file);
 assert.ok(css.includes(".project-card") && css.includes(".downloads-section"), "Missing core CSS");
@@ -65,3 +65,7 @@ assert.ok(html.includes('src="assets/ahmad-ib-profile.jpg"'),"Original portrait 
 assert.ok(!html.includes("SYSTEM / OVERVIEW"),"Obsolete system overview is still on page");
 assert.ok(css.includes(".hero-portrait-card.is-loaded .hero-portrait-image"),"Portrait display styling missing");
 assert.ok(js.includes("prepareHeroPortrait"),"Portrait loading fallback missing");
+
+assert.ok(html.includes("<h3>VAILABLE</h3>"),"VAILABLE document project missing");
+assert.ok(html.includes("Hall of Fame objective"),"Research objective missing");
+assert.ok(html.includes("Safwa Quran")&&html.includes("Nayvelo Mobile")&&html.includes("IMarket"),"Existing projects must remain");
