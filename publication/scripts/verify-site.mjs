@@ -18,7 +18,7 @@ for(const id of articles){
   assert.ok(html.includes('href="articles/'+id+'.html"'),"Missing article link "+id);
 }
 for(const asset of ["assets/style.css","assets/app.js","assets/favicon.svg","feed.xml","sitemap.xml","robots.txt","404.html"])assert.ok(existsSync(resolve(folder,asset)),"Missing asset "+asset);
-assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,7,"Expect 7 project showcases");
+assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,8,"Expect 8 project showcases");
 assert.equal((html.match(/data-article-card\b/g)||[]).length,4,"Expect 4 research previews");
 assert.equal((html.match(/class="venture-card"/g)||[]).length,3,"Expect 3 venture spotlights");
 assert.ok(html.includes("OneCall-phone-arm.apk")&&html.includes("main.zip"),"Verified downloads missing");
@@ -45,7 +45,7 @@ const feed=read("feed.xml"),sitemap=read("sitemap.xml");
 assert.ok(feed.includes("<rss"),"RSS feed missing");
 assert.ok(sitemap.includes("https://ahmadib.onrender.com/"),"Sitemap canonical missing");
 for(const id of articles)assert.ok(sitemap.includes(id+".html"),"Sitemap article missing: "+id);
-console.log("PASS personal site: 7 projects, 4 journal articles, 3 ventures, 2 verified download links.");
+console.log("PASS personal site: 8 projects, 4 journal articles, 3 ventures, 2 verified download links.");
 
 // Verify all seven user-supplied workflow illustrations and local image asset.
 assert.equal((html.match(/class="workflow-image workflow-image--/g) || []).length, 7, "Expected seven workflow photographs");
@@ -73,3 +73,7 @@ assert.ok(html.includes('src="assets/ahmad-ib-profile.jpg"'),"Original portrait 
 assert.ok(!html.includes("SYSTEM / OVERVIEW"),"Obsolete system overview is still on page");
 assert.ok(css.includes(".hero-portrait-card.is-loaded .hero-portrait-image"),"Portrait display styling missing");
 assert.ok(js.includes("prepareHeroPortrait"),"Portrait loading fallback missing");
+
+assert.ok(html.includes("<h3>VAILABLE</h3>"),"VAILABLE document project missing");
+assert.ok(html.includes("Hall of Fame objective"),"Research objective missing");
+assert.ok(html.includes("Safwa Quran")&&html.includes("Nayvelo Mobile")&&html.includes("IMarket"),"Existing projects must remain");
