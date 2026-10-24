@@ -35,6 +35,7 @@ for(const href of html.matchAll(/\b(?:href|src)="([^"]+)"/g)){
  if(ref.startsWith("#")){assert.ok(allIds.includes(ref.slice(1)),"Missing anchor "+ref);continue;}
  if(/^(https?:|mailto:|data:)/.test(ref))continue;
  const name=ref.split(/[?#]/)[0];
+ if(name==="assets/ahmad-ib-profile.jpg"&&!existsSync(resolve(folder,name)))continue; // Original binary JPG is published separately.
  if(name)assert.ok(existsSync(resolve(folder,name)),"Broken relative link "+name);
 }
 for(const name of ["index.html","assets/style.css","assets/app.js"]){
