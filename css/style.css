@@ -85,3 +85,6 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 @media(max-width:1050px){.social-account-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.workflow-gallery{grid-template-columns:1fr;gap:19px}.workflow-copy{padding:18px 21px 24px}.social-presence{padding:70px 0}.social-presence-head{flex-direction:column;align-items:flex-start;gap:12px}}
 @media(max-width:420px){.social-account-grid{grid-template-columns:1fr}}
+
+.social-youtube .social-logo{background:#ff0033}
+.social-logo svg{display:block;width:26px;height:26px;color:#fff;fill:currentColor;flex:none}
