@@ -22,3 +22,31 @@ document.addEventListener("DOMContentLoaded",function(){
     if(status)status.textContent=category==="all"?"Showing all "+visible+" projects.":"Showing "+visible+" "+category+" project"+(visible===1?".":"s.");
   })});
 });
+
+
+/* Display each original-resolution JPEG at its natural aspect ratio when available.
+   Until publication, retain the local gallery fallback without a broken-image icon. */
+(function(){
+  "use strict";
+  function loadOriginalWorkflowImages(){
+    for(const frame of document.querySelectorAll(".workflow-image[data-original-src]")){
+      const src=frame.getAttribute("data-original-src");
+      const photo=new Image();
+      photo.onload=function(){
+        frame.appendChild(photo);
+        frame.classList.add("has-original");
+        frame.removeAttribute("role");
+        frame.removeAttribute("aria-label");
+      };
+      photo.alt=frame.getAttribute("aria-label")||"Software delivery workflow";
+      photo.loading="lazy";
+      photo.decoding="async";
+      photo.src=src;
+    }
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",loadOriginalWorkflowImages,{once:true});
+  }else{
+    loadOriginalWorkflowImages();
+  }
+})();
