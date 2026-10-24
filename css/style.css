@@ -41,3 +41,50 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 .workflow-disclosure{font-size:.73rem;color:#64788d;margin:18px 0 0;line-height:1.6}
 @media(max-width:1080px){.workflow-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.workflow-heading{flex-direction:column;align-items:start;gap:9px}.workflow-gallery{grid-template-columns:1fr}.workflow-card{padding:13px;gap:13px}.workflow-image{width:90px;height:67px}}
+
+
+/* Larger engineering photographs. The original JPEG, when present, renders without recompression;
+   the existing thumbnail remains only as a graceful placeholder during asset migration. */
+.workflow-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.workflow-card{display:flex;flex-direction:column;gap:0;align-items:stretch;min-width:0;padding:0;border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(20,38,65,.06)}
+.workflow-card:last-child{grid-column:auto}
+.workflow-image{display:block;position:relative;flex:none;width:100%;height:auto;aspect-ratio:4 / 3;border:0;border-radius:0;background-color:#dbe7f5;background-repeat:no-repeat,no-repeat;background-size:cover,200% 400%}
+.workflow-image--requirements{background-image:url('../assets/workflow/requirements-analysis.jpg'),url('../assets/workflow-gallery.svg');background-position:center,0 66.666667%}
+.workflow-image--planning{background-image:url('../assets/workflow/planning.jpg'),url('../assets/workflow-gallery.svg');background-position:center,100% 33.333333%}
+.workflow-image--design{background-image:url('../assets/workflow/design.jpg'),url('../assets/workflow-gallery.svg');background-position:center,0 0}
+.workflow-image--architecture{background-image:url('../assets/workflow/software-architecture.jpg'),url('../assets/workflow-gallery.svg');background-position:center,100% 66.666667%}
+.workflow-image--development{background-image:url('../assets/workflow/development.jpg'),url('../assets/workflow-gallery.svg');background-position:center,100% 0}
+.workflow-image--testing{background-image:url('../assets/workflow/testing.jpg'),url('../assets/workflow-gallery.svg');background-position:center,0 100%}
+.workflow-image--maintenance{background-image:url('../assets/workflow/maintenance.jpg'),url('../assets/workflow-gallery.svg');background-position:center,0 33.333333%}
+.workflow-copy{padding:24px 26px 28px}
+.workflow-copy>span{font-size:.68rem}
+.workflow-copy h4{font-size:1.16rem;line-height:1.25;margin:9px 0}
+.workflow-copy p{font-size:.88rem;line-height:1.65}
+.workflow-disclosure{display:none}
+.social-presence{padding:86px 0;background:#fff;border-top:1px solid var(--line)}
+.social-presence-head{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-bottom:26px}
+.social-presence-head .overline{margin:0 0 10px}
+.social-presence-head h2{font-size:clamp(2rem,3.6vw,3.25rem);line-height:1.12;letter-spacing:-.05em;margin:0}
+.social-presence-head>p{max-width:405px;color:var(--muted);font-size:.92rem;margin:0}
+.social-account-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.social-account{display:flex;align-items:center;gap:12px;min-width:0;background:#fff;border:1px solid #dee7f1;border-radius:14px;padding:16px 13px;color:#172b46;text-decoration:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+.social-account:hover{transform:translateY(-2px);border-color:#b3cbe5;box-shadow:0 9px 24px rgba(28,47,78,.08);text-decoration:none}
+.social-logo{width:44px;height:44px;border-radius:11px;flex:none;display:grid;place-items:center;background:#24292f}
+.social-logo img{display:block;width:26px;height:26px;object-fit:contain}
+.social-linkedin .social-logo{background:#0a66c2}
+.social-instagram .social-logo{background:linear-gradient(35deg,#feda77,#f58529 30%,#dd2a7b 60%,#8134af 85%,#515bd4)}
+.social-tiktok .social-logo{background:#0b0b0b;box-shadow:inset 3px 0 #25f4ee,inset -3px 0 #fe2c55}
+.social-facebook .social-logo{background:#0866ff}
+.social-fiverr .social-logo{background:#1dbf73}
+.social-freelancer .social-logo{background:#29b2fe}
+.social-email .social-logo{background:#2468e8}
+.social-info{display:flex;flex-direction:column;min-width:0;gap:2px}
+.social-info strong{font-size:.88rem;line-height:1.35}
+.social-info small{font-size:.69rem;color:#708098;overflow-wrap:anywhere;line-height:1.35}
+.social-outbound{color:#92a3b7;font-size:1rem;margin-left:auto;flex:none}
+@media(max-width:1050px){.social-account-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.workflow-gallery{grid-template-columns:1fr;gap:19px}.workflow-copy{padding:18px 21px 24px}.social-presence{padding:70px 0}.social-presence-head{flex-direction:column;align-items:flex-start;gap:12px}}
+@media(max-width:420px){.social-account-grid{grid-template-columns:1fr}}
+
+.social-youtube .social-logo{background:#ff0033}
+.social-logo svg{display:block;width:26px;height:26px;color:#fff;fill:currentColor;flex:none}
