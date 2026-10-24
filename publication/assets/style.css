@@ -115,3 +115,5 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 
 .social-youtube .social-logo{background:#ff0033}
 .social-logo svg{display:block;width:26px;height:26px;color:#fff;fill:currentColor;flex:none}
+
+.social-whatsapp .social-logo{background:#25d366}
