@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded",function(){
         frame.removeAttribute("aria-label");
       };
       photo.alt=frame.getAttribute("aria-label")||"Software delivery workflow";
-      photo.loading="lazy";
+      photo.loading="eager";
       photo.decoding="async";
       photo.src=src;
     }
