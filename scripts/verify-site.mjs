@@ -55,6 +55,6 @@ assert.ok(css.includes("background-size:cover,200% 400%"),"High-resolution photo
 
 assert.ok(html.includes("https://wa.me/2348069514047"),"Verified WhatsApp contact link missing");
 
-assert.equal((html.match(/data-original-src="assets\/workflow\//g)||[]).length,7,"Missing original-resolution photo references");
+assert.equal((html.match(/data-photo-path="assets\/workflow\//g)||[]).length,7,"Missing original-resolution photo references");
 assert.ok(js.includes("loadOriginalWorkflowImages"),"Original-resolution photo loader missing");
 assert.ok(css.includes(".workflow-image.has-original img"),"Natural-aspect-ratio original photo styling missing");
