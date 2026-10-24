@@ -66,3 +66,9 @@ assert.ok(html.includes("https://wa.me/2348069514047"),"Verified WhatsApp contac
 assert.equal((html.match(/data-photo-path="assets\/workflow\//g)||[]).length,7,"Missing original-resolution photo references");
 assert.ok(js.includes("loadOriginalWorkflowImages"),"Original-resolution photo loader missing");
 assert.ok(css.includes(".workflow-image.has-original img"),"Natural-aspect-ratio original photo styling missing");
+
+assert.ok(html.includes('class="hero-portrait-card"'),"Original-portrait hero missing");
+assert.ok(html.includes('src="assets/ahmad-ib-profile.jpg"'),"Original portrait image path incorrect");
+assert.ok(!html.includes("SYSTEM / OVERVIEW"),"Obsolete system overview is still on page");
+assert.ok(css.includes(".hero-portrait-card.is-loaded .hero-portrait-image"),"Portrait display styling missing");
+assert.ok(js.includes("prepareHeroPortrait"),"Portrait loading fallback missing");
