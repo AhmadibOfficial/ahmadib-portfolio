@@ -52,3 +52,11 @@ assert.ok(css.includes("./workflow-gallery.svg"), "Broken workflow asset path in
 const sprite = read("assets/workflow-gallery.svg");
 assert.ok(sprite.includes("data:image/webp;base64,") && sprite.length > 5000, "Workflow photo sprite missing");
 assert.ok(html.includes("Illustrative workflow photography"), "Missing illustrative-image disclosure");
+
+
+assert.ok(!html.includes("Illustrative workflow photography. The images do not represent identified team members"),"Unwanted gallery caption remains");
+assert.ok(html.includes('id="connect"'),"Social section missing");
+for(const network of ["GitHub","LinkedIn","Instagram","TikTok","Facebook","Fiverr","Freelancer"]){
+  assert.ok(html.includes('social-'+network.toLowerCase()),"Missing social logo: "+network);
+}
+assert.ok(css.includes("background-size:cover,200% 400%"),"High-resolution photo display with fallback missing");
