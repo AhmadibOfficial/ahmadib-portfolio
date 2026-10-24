@@ -67,5 +67,5 @@ assert.ok(css.includes(".hero-portrait-card.is-loaded .hero-portrait-image"),"Po
 assert.ok(js.includes("prepareHeroPortrait"),"Portrait loading fallback missing");
 
 assert.ok(html.includes("<h3>VAILABLE</h3>"),"VAILABLE document project missing");
-assert.ok(html.includes("Hall of Fame objective"),"Research objective missing");
+assert.ok(html.includes("Find real weaknesses. Prove their impact."),"Security research statement missing");
 assert.ok(html.includes("Safwa Quran")&&html.includes("Nayvelo Mobile")&&html.includes("IMarket"),"Existing projects must remain");
