@@ -53,3 +53,7 @@ Only add a download button after verifying (1) public distribution rights, (2) t
 ## Contact
 
 GitHub: https://github.com/AhmadibOfficial
+
+## VAILABLE project and research objective
+
+VAILABLE is a private, early-stage document productivity project with a product blueprint and safeguarded development automation foundation; the public website describes its intended functionality, not a released service. The Hall of Fame research objective is aspirational: recognition depends on validated findings, responsible disclosure and genuine remediation contributions.
