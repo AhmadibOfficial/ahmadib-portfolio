@@ -90,3 +90,6 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 .social-logo svg{display:block;width:26px;height:26px;color:#fff;fill:currentColor;flex:none}
 
 .social-whatsapp .social-logo{background:#25d366}
+
+.workflow-image.has-original{height:auto;aspect-ratio:auto;background-image:none;border:0}
+.workflow-image.has-original img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
