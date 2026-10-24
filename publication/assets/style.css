@@ -120,3 +120,13 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 
 .workflow-image.has-original{height:auto;aspect-ratio:auto;background-image:none;border:0}
 .workflow-image.has-original img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+
+/* Personal hero photograph: native-ratio original JPEG, never cropped or re-encoded. */
+.hero-portrait-card{position:relative;width:100%;max-width:490px;aspect-ratio:1641 / 2048;min-height:445px;margin-inline:auto;overflow:hidden;border-radius:23px;border:1px solid #dbe4ef;background:linear-gradient(155deg,#f1f5fb,#dce8f6);box-shadow:0 26px 55px rgba(19,43,76,.16);isolation:isolate}
+.hero-portrait-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:17px;color:#24416a}
+.hero-portrait-monogram{font-size:clamp(4rem,10vw,7rem);line-height:1;letter-spacing:-.1em;font-weight:850}
+.hero-portrait-name{font-size:.75rem;letter-spacing:.2em;font-weight:800}
+.hero-portrait-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;opacity:0;transition:opacity .24s ease}
+.hero-portrait-card.is-loaded .hero-portrait-image{opacity:1}
+@media(max-width:650px){.hero-portrait-card{width:min(100%,460px);min-height:0;border-radius:18px}}
+@media(prefers-reduced-motion:reduce){.hero-portrait-image{transition:none}}
