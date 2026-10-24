@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded",function(){
 (function(){
   "use strict";
   function loadOriginalWorkflowImages(){
-    for(const frame of document.querySelectorAll(".workflow-image[data-original-src]")){
-      const src=frame.getAttribute("data-original-src");
+    for(const frame of document.querySelectorAll(".workflow-image[data-photo-path]")){
+      const src=frame.getAttribute("data-photo-path");
       const photo=new Image();
       photo.onload=function(){
         frame.appendChild(photo);
