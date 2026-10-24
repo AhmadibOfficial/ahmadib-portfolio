@@ -79,3 +79,18 @@ document.addEventListener("DOMContentLoaded",function(){
     loadOriginalWorkflowImages();
   }
 })();
+
+/* Reveal the unmodified original portrait only when the JPEG has loaded. */
+(function(){
+  "use strict";
+  function prepareHeroPortrait(){
+    const portrait=document.querySelector(".hero-portrait-image");
+    const card=portrait?.closest(".hero-portrait-card");
+    if(!portrait||!card)return;
+    function show(){if(portrait.naturalWidth>0)card.classList.add("is-loaded");}
+    if(portrait.complete)show();
+    portrait.addEventListener("load",show,{once:true});
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",prepareHeroPortrait,{once:true});
+  else prepareHeroPortrait();
+})();
