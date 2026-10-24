@@ -48,7 +48,9 @@ assert.ok(!html.includes("Illustrative workflow photography"), "Unwanted gallery
 
 assert.ok(!html.includes("Illustrative workflow photography. The images do not represent identified team members"),"Unwanted gallery caption remains");
 assert.ok(html.includes('id="connect"'),"Social section missing");
-for(const network of ["GitHub","LinkedIn","Instagram","TikTok","Facebook","Fiverr","Freelancer","YouTube"]){
+for(const network of ["GitHub","LinkedIn","Instagram","TikTok","Facebook","Fiverr","Freelancer","YouTube","WhatsApp"]){
   assert.ok(html.includes('social-'+network.toLowerCase()),"Missing social logo: "+network);
 }
 assert.ok(css.includes("background-size:cover,200% 400%"),"High-resolution photo display with fallback missing");
+
+assert.ok(html.includes("https://wa.me/2348069514047"),"Verified WhatsApp contact link missing");
