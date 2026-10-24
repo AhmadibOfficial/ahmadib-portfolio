@@ -43,3 +43,7 @@ Feature branch changes must pass CI and review. Merge into publication-render an
 ## Research publishing safety
 
 Preserve /articles/, /feed.xml, /sitemap.xml and existing links. New research is verified and distinguished from unvalidated hypotheses; protect private targets, embargoed findings and PII. Updates to articles should go through the journal's own content/disclosure validation process.
+
+## VAILABLE project and research objective
+
+VAILABLE is a private, early-stage document productivity project with a product blueprint and safeguarded development automation foundation; the public website describes its intended functionality, not a released service. The Hall of Fame research objective is aspirational: recognition depends on validated findings, responsible disclosure and genuine remediation contributions.
