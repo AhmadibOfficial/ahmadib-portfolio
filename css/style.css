@@ -72,6 +72,7 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 .social-logo{width:44px;height:44px;border-radius:11px;flex:none;display:grid;place-items:center;background:#24292f}
 .social-logo img{display:block;width:26px;height:26px;object-fit:contain}
 .social-linkedin .social-logo{background:#0a66c2}
+.social-x .social-logo{background:#153864}
 .social-instagram .social-logo{background:linear-gradient(35deg,#feda77,#f58529 30%,#dd2a7b 60%,#8134af 85%,#515bd4)}
 .social-tiktok .social-logo{background:#0b0b0b;box-shadow:inset 3px 0 #25f4ee,inset -3px 0 #fe2c55}
 .social-facebook .social-logo{background:#0866ff}
