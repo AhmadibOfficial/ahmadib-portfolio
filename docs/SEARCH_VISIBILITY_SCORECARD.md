@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | Search Console URL-prefix ownership | Verified | Site owner confirmed in Search Console |
 | Sitemap submission | **Success**; submitted and last read 25 Oct 2026 | Site owner supplied Search Console status |
-| Website sitemap endpoints | Six listed pages: homepage, profile, four articles | Public sitemap and static source verification |
+| Website sitemap endpoints | Seven listed pages: homepage, profile, online resume, four articles | Public sitemap and static source verification |
 | Google live URL inspection | Fetch successful, crawl/indexing permitted | Site owner supplied live inspection |
 | Indexed URL count | **Not yet confirmed** | Await Page indexing report |
 | Search impressions, clicks, CTR, position | **Not yet confirmed** | Await Performance → Search results |
@@ -53,6 +53,6 @@ node scripts/verify-site.mjs
 node publication/scripts/verify-site.mjs
 ```
 
-The publication gate validates all six sitemap URLs, exact canonical links, article-to-author relationships, robots.txt and the Google verification file. The GitHub Pages gate checks its own canonical/sitemap and the cross-link to the official biography.
+The publication gate validates all seven sitemap URLs, exact canonical links, article-to-author relationships, robots.txt and the Google verification file. The GitHub Pages gate checks its own canonical/sitemap and the cross-link to the official biography.
 
 **Key boundary:** These tests prove that the checked-in source is prepared for discovery. Only Google Search Console can report which pages Google actually indexed or served in search results.
