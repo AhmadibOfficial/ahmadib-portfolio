@@ -97,3 +97,6 @@ assert.ok(profileHtml.includes('src="assets/ahmad-ib-profile.jpg"'),"Original po
 assert.ok(profileHtml.includes("OneCall")&&profileHtml.includes("Android Security Toolkit")&&profileHtml.includes("MetaAutomate"),"Profile missing real software evidence");
 assert.ok(profileHtml.includes('"@type":"ProfilePage"'),"ProfilePage structured data missing");
 assert.ok(sitemap.includes("https://ahmadib.onrender.com/profile.html"),"Public profile URL omitted from sitemap");
+
+// Protect discoverability and the existing Google ownership file.
+await import("./verify-discoverability.mjs");
