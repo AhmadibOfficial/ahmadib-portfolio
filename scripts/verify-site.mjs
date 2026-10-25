@@ -82,3 +82,6 @@ assert.equal(personNode.url,"https://ahmadib.onrender.com/profile.html","Wrong p
 assert.ok(personNode.sameAs.includes("https://github.com/AhmadibOfficial"),"Public GitHub identity absent");
 assert.ok(!personNode.sameAs.includes("https://metaautomate.onrender.com/"),"Company website incorrectly presented as person profile");
 assert.ok(html.includes("Professional profile"),"Profile not linked from homepage");
+
+// Validate canonical identity and the link to the official biography.
+await import("./verify-discoverability.mjs");
