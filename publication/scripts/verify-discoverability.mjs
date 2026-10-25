@@ -60,3 +60,13 @@ assert.ok(!/^Disallow:\s*\/$/m.test(robots),"Root robots.txt disallows crawling"
 assert.equal(read("google01fc58e199c13771.html").trim(),"google-site-verification: google01fc58e199c13771.html","Google ownership file changed");
 assert.ok(read("feed.xml").includes("<rss"),"Research feed missing");
 console.log("PASS search discoverability gate: 7 public pages, canonical URLs, author identities, sitemap, robots, and Google ownership token.");
+
+const officialX="https://x.com/AhmadibOfficial";
+for(const p of ["index.html","profile.html","resume.html"]){
+  assert.ok(read(p).includes('href="'+officialX+'"'),"X profile link missing in "+p);
+}
+for(const p of ["index.html","profile.html"]){
+  const nodes=structured(read(p)).flatMap(x=>x["@graph"]||[x]);
+  const person=nodes.find(x=>x["@type"]==="Person");
+  assert.ok(person?.sameAs?.includes(officialX),"Missing X account in Person identity: "+p);
+}

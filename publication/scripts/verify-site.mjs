@@ -57,7 +57,7 @@ assert.ok(!html.includes("Illustrative workflow photography"), "Unwanted gallery
 
 assert.ok(!html.includes("Illustrative workflow photography. The images do not represent identified team members"),"Unwanted gallery caption remains");
 assert.ok(html.includes('id="connect"'),"Social section missing");
-for(const network of ["GitHub","LinkedIn","Instagram","TikTok","Facebook","Fiverr","Freelancer","YouTube","WhatsApp"]){
+for(const network of ["GitHub","LinkedIn","X","Instagram","TikTok","Facebook","Fiverr","Freelancer","YouTube","WhatsApp"]){
   assert.ok(html.includes('social-'+network.toLowerCase()),"Missing social logo: "+network);
 }
 assert.ok(css.includes("background-size:cover,200% 400%"),"High-resolution photo display with fallback missing");
@@ -103,3 +103,8 @@ assert.ok(sitemap.includes("https://ahmadib.onrender.com/profile.html"),"Public 
 
 // Protect discoverability and the existing Google ownership file.
 await import("./verify-discoverability.mjs");
+
+assert.ok(html.includes('href="https://x.com/AhmadibOfficial"'),"Official X social profile missing");
+assert.ok(css.includes(".social-x .social-logo"),"X social icon styling missing");
+assert.ok(read("profile.html").includes('href="https://x.com/AhmadibOfficial"'),"Professional profile missing X");
+assert.ok(read("resume.html").includes('href="https://x.com/AhmadibOfficial"'),"Public resume missing X");
