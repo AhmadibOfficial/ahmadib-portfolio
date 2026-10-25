@@ -69,3 +69,16 @@ assert.ok(js.includes("prepareHeroPortrait"),"Portrait loading fallback missing"
 assert.ok(html.includes("<h3>VAILABLE</h3>"),"VAILABLE document project missing");
 assert.ok(html.includes("Find real weaknesses. Prove their impact."),"Security research statement missing");
 assert.ok(html.includes("Safwa Quran")&&html.includes("Nayvelo Mobile")&&html.includes("IMarket"),"Existing projects must remain");
+
+const ldOpen='<script type="application/ld+json">';
+const ldClose='</script>';
+const ldStart=html.indexOf(ldOpen);
+const ldEnd=html.indexOf(ldClose,ldStart);
+assert.ok(ldStart>=0&&ldEnd>ldStart,"Missing structured person identity");
+const identity=JSON.parse(html.slice(ldStart+ldOpen.length,ldEnd));
+const personNode=identity["@graph"].find(item=>item["@type"]==="Person");
+assert.equal(personNode.name,"Ahmad Ibrahim","Incorrect public name");
+assert.equal(personNode.url,"https://ahmadib.onrender.com/profile.html","Wrong primary profile");
+assert.ok(personNode.sameAs.includes("https://github.com/AhmadibOfficial"),"Public GitHub identity absent");
+assert.ok(!personNode.sameAs.includes("https://metaautomate.onrender.com/"),"Company website incorrectly presented as person profile");
+assert.ok(html.includes("Professional profile"),"Profile not linked from homepage");
