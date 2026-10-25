@@ -8,7 +8,7 @@ import {fileURLToPath} from "node:url";
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const base="https://ahmadib.onrender.com/";
 const read=(p)=>readFileSync(resolve(root,p),"utf8");
-const pages=["","profile.html","articles/android-security-toolkit.html","articles/exported-android-components.html","articles/api-authorization-boundaries.html","articles/intelligence-2026-10-17.html"];
+const pages=["","profile.html","resume.html","articles/android-security-toolkit.html","articles/exported-android-components.html","articles/api-authorization-boundaries.html","articles/intelligence-2026-10-17.html"];
 const sitemap=read("sitemap.xml");
 const urls=[...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(x=>x[1].trim());
 assert.equal(new Set(urls).size,urls.length,"Duplicate sitemap entries");
@@ -36,6 +36,12 @@ for(const slug of pages){
     assert.equal(article.mainEntityOfPage,canonical,"Wrong article URL: "+path);
     assert.ok(html.includes('href="../profile.html"'),"Missing author profile link: "+path);
   }
+  if(slug==="resume.html"){
+    assert.ok(html.includes('onclick="window.print()"'),"Printable resume control missing");
+    assert.ok(html.includes("Software Engineer")&&html.includes("Application Security"),"Resume missing relevant engineering/security expertise");
+    assert.ok(html.includes("github.com/AhmadibOfficial"),"Resume must link publicly verifiable work");
+    assert.ok(html.includes("profile.html#person"),"Resume author must be linked to official identity");
+  }
   if(slug==="profile.html"){
     const nodes=graphs.flatMap(x=>x["@graph"]||[x]);
     assert.ok(nodes.some(n=>n["@type"]==="ProfilePage"),"ProfilePage schema missing");
@@ -46,9 +52,11 @@ for(const slug of pages){
 }
 const home=read("index.html");
 assert.ok(home.includes('href="profile.html"'),"Homepage does not link to profile");
+assert.ok(home.includes('href="resume.html"'),"Homepage does not link to resume");
+assert.ok(read("profile.html").includes('href="resume.html"'),"Professional biography does not link to CV");
 const robots=read("robots.txt");
 assert.ok(robots.includes("Sitemap: "+base+"sitemap.xml"),"Robots sitemap missing");
 assert.ok(!/^Disallow:\s*\/$/m.test(robots),"Root robots.txt disallows crawling");
 assert.equal(read("google01fc58e199c13771.html").trim(),"google-site-verification: google01fc58e199c13771.html","Google ownership file changed");
 assert.ok(read("feed.xml").includes("<rss"),"Research feed missing");
-console.log("PASS search discoverability gate: 6 public pages, canonical URLs, author identities, sitemap, robots, and Google ownership token.");
+console.log("PASS search discoverability gate: 7 public pages, canonical URLs, author identities, sitemap, robots, and Google ownership token.");

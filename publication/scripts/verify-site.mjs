@@ -91,6 +91,9 @@ assert.ok(personNode.sameAs.includes("https://github.com/AhmadibOfficial"),"Publ
 assert.ok(!personNode.sameAs.includes("https://metaautomate.onrender.com/"),"Company website incorrectly presented as person profile");
 assert.ok(html.includes("Professional profile"),"Profile not linked from homepage");
 
+assert.ok(html.includes('href="resume.html"'),"Resume URL missing from personal website");
+const resumeHtml=read("resume.html");
+assert.ok(resumeHtml.includes('rel="canonical" href="https://ahmadib.onrender.com/resume.html"'),"Resume canonical incorrect");
 const profileHtml=read("profile.html");
 assert.ok(profileHtml.includes('rel="canonical" href="https://ahmadib.onrender.com/profile.html"'),"Missing profile canonical");
 assert.ok(profileHtml.includes('src="assets/ahmad-ib-profile.jpg"'),"Original portrait missing from profile");
