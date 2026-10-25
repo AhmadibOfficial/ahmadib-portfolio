@@ -27,3 +27,6 @@ assert.ok(p?.sameAs?.includes("https://github.com/AhmadibOfficial"),"No public G
 assert.ok(p?.sameAs?.includes("https://www.linkedin.com/in/ahmad-ib"),"No LinkedIn identity link");
 assert.ok(existsSync(resolve(root,"assets/ahmad-ib-profile.jpg")),"Portrait asset missing");
 console.log("PASS GitHub Pages discoverability: canonical URL, sitemap, personal identity, official biography and portrait.");
+
+assert.ok(p.sameAs.includes("https://x.com/AhmadibOfficial"),"Person identity missing X profile");
+assert.ok(home.includes('social-account social-x'),"X not visible among contact accounts");
