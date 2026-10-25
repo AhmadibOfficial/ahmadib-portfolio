@@ -15,6 +15,7 @@ assert.match(home,/<meta name="description" content="[^"]+"/i,"Page description 
 assert.ok(!/<meta[^>]+noindex/i.test(home),"Indexing blocked by meta tag");
 assert.ok(home.includes('<link rel="canonical" href="'+page+'">'),"Wrong GitHub Pages canonical");
 assert.ok(home.includes('href="'+verifiedBio+'"'),"Missing official professional biography link");
+assert.ok(home.includes('href="https://ahmadib.onrender.com/resume.html"'),"Missing direct CV link from professional portfolio");
 const urls=[...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(m=>m[1].trim());
 assert.deepEqual(urls,[page],"GitHub Pages sitemap mismatch");
 const ld=home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
