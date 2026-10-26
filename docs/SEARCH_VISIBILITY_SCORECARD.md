@@ -19,6 +19,15 @@
 
 **Do not enter zero for unreported metrics.** “Unknown” means data is unavailable, not that Google recorded zero visits or impressions.
 
+## Publication update — 26 October 2026
+
+- **Site inventory:** eight public canonical URLs are present in the sitemap (homepage, professional profile, public resume, and five research articles).
+- **New original technical article:** [Designing redacted, reproducible APK evidence reports](https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html), grounded in the public Android Security Toolkit's reporting implementation and tests.
+- **Release checks:** personal website validation passed and the Render deployment was confirmed live; homepage, article and sitemap links were checked through public page retrieval.
+- **Google Search indexing status:** the owner has confirmed homepage indexing; indexing of the new article and other URLs has **not** been established. Do not infer impressions or clicks from technical crawlability.
+- **Search measurement:** the owner supplied an isolated number “3” without identifying whether it represented clicks or impressions; leave numerical search performance metrics as **Unknown** until the correctly labelled Search Console export is available.
+- **Research boundary:** the case study describes known implementation behavior and synthetic tests; it claims no validated third-party vulnerabilities.
+
 ## Weekly observation workflow
 
 Record the report's actual data period and collection date; Search Console data can lag. Use a consistent date range across comparisons.
