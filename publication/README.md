@@ -12,7 +12,7 @@ A professional personal website with software engineering, application security,
 - Responsive design with mobile navigation and accessible skip link
 - Project cards and filter buttons
 - Public artifacts only: OneCall USB Android phone pilot APK and Android Security Toolkit Python source
-- Four preserved security-research articles, RSS feed and existing canonical article URLs
+- Five source-backed security-research articles, RSS feed and existing canonical article URLs
 - Sitemap, favicon and social metadata
 - No tracking scripts, passwords, external JS dependencies or private repo contents
 
@@ -22,7 +22,7 @@ A professional personal website with software engineering, application security,
 - **Android Security Toolkit** is an open-source CLI source download (Python 3.11+), **not an APK**. Scan only authorized apps.
 - **MetaAutomate** has its company website at https://metaautomate.onrender.com/; the private platform has no downloadable MVP published here.
 - **Safwa Quran**, Security Research OS and the IMarket/Nayvelo concepts have no verified public installable release advertised here.
-- An unverified CV or unreviewed penetration-testing report is not published.
+- The public web resume is linked from the site; no unreviewed penetration-testing report is published.
 
 ## Local test
 
@@ -46,4 +46,4 @@ Preserve /articles/, /feed.xml, /sitemap.xml and existing links. New research is
 
 ## VAILABLE project and research objective
 
-VAILABLE is a private, early-stage document productivity project with a product blueprint and safeguarded development automation foundation; the public website describes its intended functionality, not a released service. The Hall of Fame research objective is aspirational: recognition depends on validated findings, responsible disclosure and genuine remediation contributions.
+VAILABLE is a private, early-stage document productivity project with a product blueprint and safeguarded development automation foundation; the public website describes its intended functionality, not a released service. Security research is centered on authorized testing, reproducible evidence, responsible disclosure and practical remediation.
