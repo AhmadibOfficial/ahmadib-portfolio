@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#0b2026">
+<meta name="author" content="Ahmad Ibrahim">
+<meta name="description" content="A source-backed walkthrough of deterministic Android APK evidence reports: stable finding IDs, redaction, private exports, manual validation, and the limits of static analysis.">
+<link rel="canonical" href="https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html">
+<link rel="alternate" type="application/rss+xml" title="Ahmad-IB Security Research Journal" href="https://ahmadib.onrender.com/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ahmad-IB Security Research Journal">
+<meta property="og:title" content="Designing redacted, reproducible APK evidence reports | Ahmad-IB Security Research Journal">
+<meta property="og:description" content="A source-backed walkthrough of deterministic Android APK evidence reports: stable finding IDs, redaction, private exports, manual validation, and the limits of static analysis.">
+<meta property="og:url" content="https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@AhmadibOfficial">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<title>Designing redacted, reproducible APK evidence reports | Ahmad-IB Security Research Journal</title>
+</head><body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="container nav-inner">
+  <a class="brand" href="../index.html" aria-label="Ahmad-IB Research Journal — home"><span class="brand-mark">AI.</span><span><span class="brand-name">AHMAD-IB</span><span class="brand-subtitle">Security Research Journal</span></span></a>
+  <nav class="nav-links" aria-label="Primary navigation">
+    <a href="../index.html" >Home</a>
+    <a href="../index.html#articles" aria-current="page">Research</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#about">About</a>
+    <a href="../feed.xml" class="rss-link" title="Subscribe via RSS">RSS ↗</a>
+  </nav><a href="https://github.com/AhmadibOfficial" class="nav-cta" target="_blank" rel="noopener noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a>
+</div></header><main id="main">
+<section class="article-hero"><div class="container">
+<p class="breadcrumb"><a href="../index.html#research">← Back to journal</a> / Source-backed engineering</p>
+<span class="pill">Engineering case study 05 · Android tooling</span>
+<h1>Designing redacted, reproducible APK evidence reports</h1>
+<p class="article-lead">A useful security report identifies exactly what was observed, keeps sensitive evidence under control, and refuses to label a configuration warning as an exploited vulnerability.</p>
+<div class="article-byline"><span class="byline-avatar" aria-hidden="true">AI</span>
+<span><strong><a href="../profile.html">Ahmad Ibrahim</a></strong><br>26 October 2026 · Code walkthrough · No real-world vulnerability claimed</span></div>
+</div></section>
+<div class="container article-body-wrap">
+<article class="prose">
+<h2 id="problem">The problem: a finding is not a fact about impact</h2>
+<p>An Android scanner can extract manifest flags and inspect bundled resources. It cannot, from those observations alone, establish that a sensitive operation is reachable, that an attacker can cross an authorization boundary, or that users have been harmed. I wanted evidence records from the <a href="https://github.com/AhmadibOfficial/android-security-toolkit" target="_blank" rel="noopener noreferrer">AHMAD-IB Android Security Toolkit</a> to preserve that distinction.</p>
+<p>The public <code>ahmad-sec</code> CLI is an experimental static-analysis project, not an exploitation framework or a certified penetration-testing service. Its <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/commands/apk.py" target="_blank" rel="noopener noreferrer">scan command</a> combines local APK metadata with manifest, exported-component, network-configuration and selected secret-pattern observations. The report builder then turns those observations into a structured JSON document for a reviewer.</p>
+
+<h2 id="workflow">One authorized input, two forms of output</h2>
+<p>The documented workflow starts with a local APK that the researcher owns or has explicit permission to assess. After installing the project in an isolated Python environment, the command below prints findings to the terminal and optionally creates a local JSON evidence file:</p>
+<pre><code>python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+
+ahmad-sec apk scan /path/to/authorized.apk \
+  --json-out evidence-local.json</code></pre>
+<p>This syntax is taken from the repository's <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/docs/EVIDENCE_REPORT_SCHEMA.md" target="_blank" rel="noopener noreferrer">evidence report documentation</a>. It is an example command, <strong>not a record of a scan performed for this article</strong>. The <code>--json-out</code> option is optional; it does not upload a report, submit a vulnerability, or scan remote targets.</p>
+
+<h2 id="data">What an evidence record is designed to preserve</h2>
+<p>The report is explicitly labelled <code>assessment_type: offline_static</code> and uses schema version <code>1.0</code>. The target summary records an APK filename, package name, SHA-256 value when supplied, and target SDK information; it avoids including the complete local host path. Its finding records distinguish a rule identifier, severity, confidence, observed component or resource, collection method, risk score and validation state.</p>
+<p>The following is a <strong>short illustrative excerpt of field names and a configuration signal</strong>, not a complete generated report or proof of a real vulnerability:</p>
+<pre><code>{
+  "assessment_type": "offline_static",
+  "findings": [
+    {
+      "rule_id": "AST-SEC-001",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "validation_status": "requires_manual_validation",
+      "evidence": {
+        "collection_method": "offline_apk_static_analysis",
+        "observation": "android:usesCleartextTraffic=\"true\""
+      }
+    }
+  ]
+}</code></pre>
+<p>The <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/rules/network.py" target="_blank" rel="noopener noreferrer">network rule</a> reports the cleartext flag when it is explicitly enabled and a network-security configuration resource does not take precedence. That is a configuration observation. Whether the application actually sends sensitive information over HTTP requires separate, authorized investigation.</p>
+
+<h2 id="stable">Stable identifiers without pretending to have CVEs</h2>
+<p>In the <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/reporting/evidence.py" target="_blank" rel="noopener noreferrer">reporting implementation</a>, a finding's rule, title, component, source and original evidence are serialized in a predictable order and hashed to produce a short deterministic instance ID. Duplicate instance IDs are filtered, and observations are sorted consistently. Timestamps are intentionally excluded from the report structure, making equivalent inputs easier to compare between runs.</p>
+<p>These IDs are local correlation aids—not CVE identifiers, exploit demonstrations, or externally verified security advisories. A change in the underlying evidence can change the identifier. Consistent formatting improves review, but it cannot make an untested security claim true.</p>
+
+<h2 id="redaction">Redaction and export safety are layers, not guarantees</h2>
+<p>Some potential credentials can be matched by pattern. The <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/rules/secrets.py" target="_blank" rel="noopener noreferrer">secret rules</a> mask matched candidates in observations rather than printing the complete candidate; the JSON reporter applies additional masking against its known patterns. The implementation also normalizes certain archive paths and removes complete host paths from the target summary.</p>
+<p>The writer uses exclusive file creation rather than silently overwriting an existing file, rejects a symbolic-link destination and requests owner-only file permissions on POSIX systems. Those are meaningful safeguards in the <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/reporting/evidence.py" target="_blank" rel="noopener noreferrer">source code</a>, but they are not an assurance that every possible secret, data format or malicious APK will be handled safely. A report remains potentially sensitive and needs human review before sharing.</p>
+<p>The repository includes <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/tests/test_evidence_report.py" target="_blank" rel="noopener noreferrer">tests for deterministic output, duplicate filtering, redaction of a synthetic key, private file permissions, non-overwrite behavior and symlink rejection</a>. These tests demonstrate intended behaviors in fixtures; this article does not claim a fresh production audit or a new verified vulnerability.</p>
+
+<h2 id="decision">Turning a warning into an investigation decision</h2>
+<p>Consider two examples. An explicitly exported Android component is an entry point to review, but its reachability, required permissions and sensitive behavior still need examination. The <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/rules/components.py" target="_blank" rel="noopener noreferrer">component detector</a> accordingly marks explicit exports as informational and records any declared permission for further assessment. Similarly, a cleartext-traffic flag may justify checking relevant traffic flows, yet the flag by itself is not evidence that sensitive data crossed the network in plaintext.</p>
+<p>I would review each result in this order: confirm the APK and authorized assessment scope; reproduce the static observation; inspect affected code and permissions; test reachability and sensitive behavior only in an approved environment; assess the security consequence; and document a safe remediation and regression test if a real issue is validated. The <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/docs/RESEARCH_PROCESS.md" target="_blank" rel="noopener noreferrer">research process</a> explicitly separates observations, candidate risks, confirmed issues and remediated findings.</p>
+<blockquote>Evidence should help a reviewer decide what to verify next. It should never substitute for that verification.</blockquote>
+
+<h2 id="conclusion">What this case study actually establishes</h2>
+<p>The public implementation demonstrates an approach to structuring offline Android assessment observations, reducing some disclosure risks and making report comparison more reproducible. It also documents important limitations: selected secret-pattern scanning has incomplete coverage; configuration flags may not reflect real attack paths; and evidence requires contextual, authorized manual validation. This is a walkthrough of <strong>documented code and tests</strong>, not a claim that the toolkit has found exploitable issues in third-party apps.</p>
+<div class="callout"><strong>Inspect the supporting code.</strong><p>Start with the <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/src/ahmad_sec/reporting/evidence.py" target="_blank" rel="noopener noreferrer">evidence report builder</a>, then review its <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/tests/test_evidence_report.py" target="_blank" rel="noopener noreferrer">synthetic tests</a> and <a href="https://github.com/AhmadibOfficial/android-security-toolkit/blob/main/docs/EVIDENCE_REPORT_SCHEMA.md" target="_blank" rel="noopener noreferrer">schema documentation</a>. Never publish raw APKs, tokens or confidential research evidence.</p></div>
+<div class="related"><h2>Further reading</h2>
+<p><a href="android-security-toolkit.html">Building an Android security toolkit around evidence, not alerts →</a></p>
+<p><a href="exported-android-components.html">Exported Android components: exposure is not exploitability →</a></p>
+<p class="small-note">This article may be corrected as the linked open-source implementation evolves. No confidential target evidence is included.</p></div>
+</article>
+<aside class="article-aside" aria-label="On this page">
+<h2>In this article</h2>
+<a href="#problem">What the report can prove</a>
+<a href="#workflow">Authorized CLI workflow</a>
+<a href="#data">Evidence record fields</a>
+<a href="#stable">Deterministic finding IDs</a>
+<a href="#redaction">Redaction and safe export</a>
+<a href="#decision">Manual validation</a>
+<a href="#conclusion">Conclusions and limits</a>
+<div class="aside-cta"><strong>Reproducible, not sensational.</strong>
+<p>The source is public. Scan only software you are authorized to assess and treat evidence exports as sensitive.</p>
+<a href="https://github.com/AhmadibOfficial/android-security-toolkit" target="_blank" rel="noopener noreferrer">Explore toolkit source ↗</a></div>
+</aside>
+</div>
+</main><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Designing redacted, reproducible APK evidence reports","description":"A source-backed walkthrough of deterministic Android APK evidence reports: stable finding IDs, redaction, private exports, manual validation, and the limits of static analysis.","datePublished":"2026-10-26","author":{"@type":"Person","@id":"https://ahmadib.onrender.com/profile.html#person","name":"Ahmad Ibrahim","url":"https://ahmadib.onrender.com/profile.html"},"mainEntityOfPage":"https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html","publisher":{"@type":"Person","name":"Ahmad Ibrahim"},"isBasedOn":"https://github.com/AhmadibOfficial/android-security-toolkit"}</script><footer class="site-footer"><div class="container"><div class="footer-grid">
+  <div><a class="brand" href="../index.html"><span class="brand-mark">AI.</span><span><span class="brand-name">AHMAD-IB</span><span class="brand-subtitle">Security Research Journal</span></span></a><p class="footer-desc">Independent notes on mobile application security, APIs, secure engineering and the evidence behind findings.</p></div>
+  <div class="footer-col"><h3>Explore</h3><a href="../index.html#articles">Research library</a><a href="../index.html#projects">Open-source projects</a><a href="../index.html#about">About the author</a><a href="../feed.xml">RSS feed</a></div>
+  <div class="footer-col"><h3>Connect</h3><a href="https://github.com/AhmadibOfficial" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://github.com/AhmadibOfficial/android-security-toolkit" target="_blank" rel="noopener noreferrer">Android Security Toolkit ↗</a><a href="../index.html">Portfolio website ↗</a></div>
+</div><div class="foot-bottom"><span>© 2026 Ahmad Ibrahim. Independent research and technical writing.</span><span>Responsible disclosure first · No tracking scripts · Published on Render</span></div></div></footer><script src="../assets/app.js" defer></script></body></html>
