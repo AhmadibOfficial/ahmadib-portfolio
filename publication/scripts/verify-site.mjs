@@ -6,7 +6,7 @@ import {fileURLToPath} from "node:url";
 const folder=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const read=(name)=>readFileSync(resolve(folder,name),"utf8");
 const html=read("index.html"),css=read("assets/style.css"),js=read("assets/app.js");
-const articles=["intelligence-2026-10-17","android-security-toolkit","exported-android-components","api-authorization-boundaries"];
+const articles=["intelligence-2026-10-17","android-security-toolkit","redacted-apk-evidence-reports","exported-android-components","api-authorization-boundaries"];
 const ids=["main","home","about","expertise","projects","research","downloads","ventures","approach","contact"];
 assert.match(html,/^<!doctype html>/i,"Missing HTML doctype");
 assert.match(html,/https:\/\/ahmadib\.onrender\.com\//,"Wrong personal site canonical");
@@ -19,7 +19,7 @@ for(const id of articles){
 }
 for(const asset of ["assets/style.css","assets/app.js","assets/favicon.svg","feed.xml","sitemap.xml","robots.txt","404.html"])assert.ok(existsSync(resolve(folder,asset)),"Missing asset "+asset);
 assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,8,"Expect 8 project showcases");
-assert.equal((html.match(/data-article-card\b/g)||[]).length,4,"Expect 4 research previews");
+assert.equal((html.match(/data-article-card\b/g)||[]).length,5,"Expect 5 research previews");
 assert.equal((html.match(/class="venture-card"/g)||[]).length,3,"Expect 3 venture spotlights");
 assert.ok(html.includes("OneCall-phone-arm.apk")&&html.includes("main.zip"),"Verified downloads missing");
 assert.ok(html.includes("USB/ADB reverse")&&html.includes("standalone cloud-connected app"),"OneCall prerelease limitations missing");
@@ -45,7 +45,7 @@ const feed=read("feed.xml"),sitemap=read("sitemap.xml");
 assert.ok(feed.includes("<rss"),"RSS feed missing");
 assert.ok(sitemap.includes("https://ahmadib.onrender.com/"),"Sitemap canonical missing");
 for(const id of articles)assert.ok(sitemap.includes(id+".html"),"Sitemap article missing: "+id);
-console.log("PASS personal site: 8 projects, 4 journal articles, 3 ventures, 2 verified download links.");
+console.log("PASS personal site: 8 projects, 5 journal articles, 3 ventures, 2 verified download links.");
 
 // Verify all seven user-supplied workflow illustrations and local image asset.
 assert.equal((html.match(/class="workflow-image workflow-image--/g) || []).length, 7, "Expected seven workflow photographs");
@@ -110,3 +110,13 @@ assert.ok(html.includes('href="https://x.com/AhmadibOfficial"'),"Official X soci
 assert.ok(css.includes(".social-x .social-logo"),"X social icon styling missing");
 assert.ok(read("profile.html").includes('href="https://x.com/AhmadibOfficial"'),"Professional profile missing X");
 assert.ok(read("resume.html").includes('href="https://x.com/AhmadibOfficial"'),"Public resume missing X");
+
+const newCase=read("articles/redacted-apk-evidence-reports.html");
+assert.ok(newCase.includes('TechArticle'),"New case study missing TechArticle schema");
+assert.ok(newCase.includes('rel="canonical" href="https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html"'),"Incorrect case-study canonical");
+assert.ok(newCase.includes('src/ahmad_sec/reporting/evidence.py'),"Primary research implementation not cited");
+assert.ok(newCase.includes('tests/test_evidence_report.py'),"Research tests not cited");
+assert.ok(newCase.includes("requires_manual_validation"),"Manual-validation limit missing");
+assert.ok(newCase.includes("not a record of a scan performed"),"Case-study evidence boundary missing");
+assert.ok(feed.includes("redacted-apk-evidence-reports.html"),"RSS missing case study");
+assert.ok(profileHtml.includes('articles/redacted-apk-evidence-reports.html'),"Professional profile missing case study");
