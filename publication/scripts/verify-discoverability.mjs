@@ -8,7 +8,7 @@ import {fileURLToPath} from "node:url";
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const base="https://ahmadib.onrender.com/";
 const read=(p)=>readFileSync(resolve(root,p),"utf8");
-const pages=["","profile.html","resume.html","articles/android-security-toolkit.html","articles/exported-android-components.html","articles/api-authorization-boundaries.html","articles/intelligence-2026-10-17.html"];
+const pages=["","profile.html","resume.html","articles/android-security-toolkit.html","articles/redacted-apk-evidence-reports.html","articles/exported-android-components.html","articles/api-authorization-boundaries.html","articles/intelligence-2026-10-17.html"];
 const sitemap=read("sitemap.xml");
 const urls=[...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(x=>x[1].trim());
 assert.equal(new Set(urls).size,urls.length,"Duplicate sitemap entries");
@@ -59,7 +59,7 @@ assert.ok(robots.includes("Sitemap: "+base+"sitemap.xml"),"Robots sitemap missin
 assert.ok(!/^Disallow:\s*\/$/m.test(robots),"Root robots.txt disallows crawling");
 assert.equal(read("google01fc58e199c13771.html").trim(),"google-site-verification: google01fc58e199c13771.html","Google ownership file changed");
 assert.ok(read("feed.xml").includes("<rss"),"Research feed missing");
-console.log("PASS search discoverability gate: 7 public pages, canonical URLs, author identities, sitemap, robots, and Google ownership token.");
+console.log("PASS search discoverability gate: 8 public pages, canonical URLs, author identities, sitemap, robots, and Google ownership token.");
 
 const officialX="https://x.com/AhmadibOfficial";
 for(const p of ["index.html","profile.html","resume.html"]){
