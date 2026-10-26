@@ -76,6 +76,8 @@ assert.ok(js.includes("prepareHeroPortrait"),"Portrait loading fallback missing"
 
 assert.ok(html.includes("<h3>VAILABLE</h3>"),"VAILABLE document project missing");
 assert.ok(html.includes("Find real weaknesses. Prove their impact."),"Security research statement missing");
+assert.ok(html.includes("My focus is on practical findings and fixes that help make software safer."),"Research copy update missing");
+assert.ok(!html.includes("My ambition is to"),"Outdated research ambition remains");
 assert.ok(html.includes("Safwa Quran")&&html.includes("Nayvelo Mobile")&&html.includes("IMarket"),"Existing projects must remain");
 
 const ldOpen='<script type="application/ld+json">';
