@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<defs><linearGradient id="nav" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071B3D"/><stop offset="1" stop-color="#124B9E"/></linearGradient><linearGradient id="light" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#F4F9FF"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient></defs>
+<rect width="1080" height="1350" fill="#fff"/>
+<rect x="0" y="0" width="1080" height="22" fill="#1261D8"/>
+<rect x="60" y="72" rx="9" width="11" height="45" fill="#1373ED"/>
+<text x="91" y="104" font-family="Arial,DejaVu Sans,sans-serif" font-size="29" font-weight="bold" fill="#071B3D">AHMAD-IB  /  CYBERSECURITY RESEARCH</text>
+<text x="62" y="213" font-family="Arial,DejaVu Sans,sans-serif" font-size="60" font-weight="bold" fill="#091F45">NIGERIA'S DIGITAL</text>
+<text x="62" y="286" font-family="Arial,DejaVu Sans,sans-serif" font-size="60" font-weight="bold" fill="#091F45">SUPPLY CHAINS</text>
+<rect x="60" y="316" width="960" height="86" rx="14" fill="url(#nav)"/>
+<text x="86" y="373" font-family="Arial,DejaVu Sans,sans-serif" font-size="48" font-weight="bold" fill="#fff">IS COMPLIANCE ENOUGH?</text>
+<text x="61" y="451" font-family="Arial,DejaVu Sans,sans-serif" font-size="28" fill="#294A71">Four security controls that protect real operations.</text>
+<rect x="60" y="502" width="460" height="277" rx="24" fill="url(#light)" stroke="#D9E7F6" stroke-width="2"/>
+<rect x="560" y="502" width="460" height="277" rx="24" fill="url(#light)" stroke="#D9E7F6" stroke-width="2"/>
+<rect x="60" y="807" width="460" height="277" rx="24" fill="url(#light)" stroke="#D9E7F6" stroke-width="2"/>
+<rect x="560" y="807" width="460" height="277" rx="24" fill="url(#light)" stroke="#D9E7F6" stroke-width="2"/>
+<rect x="91" y="532" width="87" height="63" rx="11" fill="#1261D8"/><text x="108" y="578" font-size="39" font-family="Arial,sans-serif" font-weight="bold" fill="#fff">01</text>
+<rect x="591" y="532" width="87" height="63" rx="11" fill="#1261D8"/><text x="608" y="578" font-size="39" font-family="Arial,sans-serif" font-weight="bold" fill="#fff">02</text>
+<rect x="91" y="837" width="87" height="63" rx="11" fill="#1261D8"/><text x="108" y="883" font-size="39" font-family="Arial,sans-serif" font-weight="bold" fill="#fff">03</text>
+<rect x="591" y="837" width="87" height="63" rx="11" fill="#1261D8"/><text x="608" y="883" font-size="39" font-family="Arial,sans-serif" font-weight="bold" fill="#fff">04</text>
+<g font-family="Arial,DejaVu Sans,sans-serif" font-weight="bold" font-size="32" fill="#091F45">
+<text x="92" y="650">API AUTHORIZATION</text><text x="592" y="650">PAYMENT INTEGRITY</text><text x="92" y="955">VENDOR ASSURANCE</text><text x="592" y="955">INCIDENT RESILIENCE</text></g>
+<g font-family="Arial,DejaVu Sans,sans-serif" font-size="25" fill="#263F60">
+<text x="92" y="702">Enforce role, resource,</text><text x="92" y="738">and action permissions.</text>
+<text x="592" y="702">Verify payouts and</text><text x="592" y="738">splits on the server.</text>
+<text x="92" y="1007">Assess vendor access,</text><text x="92" y="1043">contracts and dependencies.</text>
+<text x="592" y="1007">Test containment,</text><text x="592" y="1043">recovery and reporting.</text></g>
+<rect x="60" y="1124" width="960" height="91" rx="18" fill="#091F45"/>
+<text x="540" y="1181" font-family="Arial,DejaVu Sans,sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#fff">SECURITY IS PROVEN THROUGH EVIDENCE.</text>
+<text x="540" y="1268" font-family="Arial,DejaVu Sans,sans-serif" font-size="22" text-anchor="middle" fill="#40516A">Educational analysis · No allegation against a specific company</text>
+<text x="540" y="1306" font-family="Arial,DejaVu Sans,sans-serif" font-size="20" text-anchor="middle" fill="#60718C">ahmadib.onrender.com   •   Ahmad-IB</text></svg>
