@@ -8,7 +8,7 @@ const html = read("index.html");
 const css = read("css/style.css");
 const js = read("js/script.js");
 const projectCount = (html.match(/class="project-card(?:\s|")/g) ?? []).length;
-const requiredSections = ["home","about","expertise","projects","downloads","approach","contact"];
+const requiredSections = ["home","about","expertise","projects","case-studies","downloads","approach","contact"];
 
 assert.match(html, /<!doctype html>/i);
 assert.equal(projectCount, 8, "Expected seven real project cards");
@@ -90,3 +90,11 @@ await import("./verify-discoverability.mjs");
 
 assert.ok(html.includes('href="https://x.com/AhmadibOfficial"'),"Official X social profile missing");
 assert.ok(css.includes(".social-x .social-logo"),"X social icon styling missing");
+
+
+// Engineering case studies must point to public evidence without overstating project maturity.
+assert.equal((html.match(/class="case-study-card"/g) ?? []).length, 2, "Expected two documented engineering case studies");
+assert.ok(html.includes('href="#case-studies"'), "Case studies missing from primary navigation");
+assert.ok(html.includes("https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html"), "Published case study link missing");
+assert.ok(html.includes("https://github.com/AhmadibOfficial/OneCall/releases/tag/phone-pilot-10-1"), "OneCall pilot evidence link missing");
+assert.ok(html.includes("No real-world exploited vulnerability is claimed."), "Missing security evidence boundary");

@@ -25,7 +25,7 @@
       <a class="brand" href="#home" aria-label="Ahmad Ibrahim, home"><span class="brand-icon">A<span>.</span></span><span>AHMAD<span class="brand-muted">IB</span></span></a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation"><span></span><span></span><span></span></button>
       <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-        <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Projects</a><a href="#downloads">MVP Downloads</a><a href="#approach">Approach</a>
+        <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#projects">Projects</a><a href="#case-studies">Case Studies</a><a href="#downloads">MVP Downloads</a><a href="#approach">Approach</a>
         <a class="nav-contact" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
@@ -95,6 +95,44 @@
         </div>
         <p class="projects-note" id="filter-status" role="status" aria-live="polite">Showing all 8 projects.</p>
         <div class="research-mission"><div><p class="overline">SECURITY RESEARCH</p><h3>Find real weaknesses. Prove their impact.</h3></div><p>I investigate security vulnerabilities in mobile apps, web platforms and APIs with proper authorization, document reproducible evidence, and provide clear remediation guidance. My focus is on practical findings and fixes that help make software safer.</p></div>
+      </div>
+    </section>
+
+    <section class="section case-studies-section" id="case-studies" aria-labelledby="case-studies-title">
+      <div class="container">
+        <div class="section-top">
+          <div><p class="overline">03A / ENGINEERING EVIDENCE</p><h2 id="case-studies-title">Decisions, code, <em>and evidence.</em></h2></div>
+          <p class="section-intro">A closer look at the engineering work behind selected projects: the problem, the implementation, and what can be checked publicly.</p>
+        </div>
+        <div class="case-study-grid">
+          <article class="case-study-card">
+            <p class="case-study-kicker">APPLICATION SECURITY · PUBLISHED 26 OCTOBER 2026</p>
+            <h3>Designing redacted, reproducible APK evidence reports</h3>
+            <p>Static APK inspection can identify risky configurations without proving exploitability. I worked on reporting that keeps observations separate from confirmed security impact and controls sensitive exported evidence.</p>
+            <dl class="case-study-facts">
+              <div><dt>Engineering approach</dt><dd>Deterministic report records, selective redaction, safe file handling and manual-validation boundaries.</dd></div>
+              <div><dt>Public evidence</dt><dd>Technical article, inspectable Python source and documented checks. No real-world exploited vulnerability is claimed.</dd></div>
+            </dl>
+            <div class="case-study-links">
+              <a href="https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html" target="_blank" rel="noopener noreferrer">Read engineering case study <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/AhmadibOfficial/android-security-toolkit" target="_blank" rel="noopener noreferrer">Inspect toolkit source <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="case-study-card">
+            <p class="case-study-kicker">MOBILE &amp; BACKEND ENGINEERING · PUBLIC REPOSITORY</p>
+            <h3>OneCall: from service workflows to an Android pilot</h3>
+            <p>Building customer and provider workflows requires coordinated mobile screens, authenticated backend services and operationally testable release steps.</p>
+            <dl class="case-study-facts">
+              <div><dt>Engineering approach</dt><dd>Flutter client, NestJS backend and PostgreSQL data workflows for a multi-role services platform.</dd></div>
+              <div><dt>Verified release boundary</dt><dd>The published Android prerelease depends on a locally running backend and USB/ADB reverse forwarding. It is not a standalone production app.</dd></div>
+            </dl>
+            <div class="case-study-links">
+              <a href="https://github.com/AhmadibOfficial/OneCall" target="_blank" rel="noopener noreferrer">Review public repository <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/AhmadibOfficial/OneCall/releases/tag/phone-pilot-10-1" target="_blank" rel="noopener noreferrer">Read pilot release notes <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="case-study-note">These are engineering records, not claims of production-scale adoption, certified audits or vulnerabilities found in unauthorized systems.</p>
       </div>
     </section>
 
