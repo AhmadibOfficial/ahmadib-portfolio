@@ -14,6 +14,15 @@ Showcase application security, software engineering, selected products, research
 - No fabricated certifications, CV download, verified vulnerability claims or published MVPs.
 - Private repository materials are never linked as downloadable source files.
 
+## Engineering case studies
+
+The homepage includes an evidence-led section linking to:
+
+- **Android APK evidence reporting:** a published 26 October 2026 technical article on deterministic, selectively redacted reports, with the public Android Security Toolkit repository. Static flags are not represented as confirmed exploited vulnerabilities.
+- **OneCall Android pilot:** public source and prerelease instructions, explicitly noting the locally running backend and USB/ADB reverse dependency. No production standalone release is implied.
+
+Both case studies link to publicly reviewable materials. Keep private code, client information, and unverified performance or vulnerability claims out of future portfolio copy.
+
 ## Project status / download evidence (checked 2026-10-23)
 
 | Project | Visibility / release | Public downloads |
