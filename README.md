@@ -4,7 +4,7 @@ A responsive static portfolio for Ahmad Ibrahim, built with HTML, CSS and vanill
 
 ## Purpose
 
-Showcase application security, software engineering, selected products, research tools and verified public downloads.
+Showcase application security, software engineering, selected products, source-backed research and publicly accessible engineering resources.
 
 ## Rebuild policy
 
@@ -14,11 +14,11 @@ Showcase application security, software engineering, selected products, research
 - No fabricated certifications, CV download, verified vulnerability claims or published MVPs.
 - Private repository materials are never linked as downloadable source files.
 
-## Project status / download evidence (checked 2026-10-23)
+## Project visibility and public resources
 
 | Project | Visibility / release | Public downloads |
 | --- | --- | --- |
-| OneCall | Public repository, pre-release USB phone pilot tag phone-pilot-10-1 | Android test APK with local backend / USB reverse dependency. Read full release notes and verify SHA256. Not a production standalone app. |
+| OneCall | Public repository; mobile and backend engineering in progress | Repository link for project and engineering information; no installer promoted on the portfolio. |
 | Android Security Toolkit | Public Python source (Apache-2.0), no verified binary release | Source ZIP of main. Install using README, Python 3.11+. |
 | MetaAutomate | Private repository | No downloadable package. Public business website only. |
 | Security Research OS | Private repository | No downloadable package. |
@@ -26,7 +26,7 @@ Showcase application security, software engineering, selected products, research
 | IMarket | Concept / early engineering | No verified public release. |
 | Nayvelo Mobile | Telecom concept / simulated design | No verified public release. |
 
-The OneCall repository has a proprietary license; linking its intentionally published test APK does not grant broad redistribution or re-licensing rights. The portfolio does not mirror that binary.
+The OneCall project remains in the portfolio, but its previous development-pilot APK is no longer advertised or linked. The GitHub repository and existing release history are left unchanged.
 
 ## Test
 
@@ -46,9 +46,9 @@ Confirm keyboard navigation, mobile menu, project filters, source/download links
 
 GitHub Pages remains configured from main / (root). After review and successful testing, merge the PR into main. The deployment will use the current root index.html.
 
-## Add new MVP download
+## Publishing additional public resources
 
-Only add a download button after verifying (1) public distribution rights, (2) the exact artifact, (3) supported platform and prerequisites, (4) checksum/signature where applicable, (5) release status, and (6) install instructions.
+Publish a binary download only when its supported setup and distribution status are suitable for public users. In-progress projects can be presented through a repository, technical documentation or source-backed case study instead of an installer.
 
 ## Contact
 
