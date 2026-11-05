@@ -22,7 +22,7 @@ assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,8,"Expect 8
 assert.equal((html.match(/data-article-card\b/g)||[]).length,5,"Expect 5 research previews");
 assert.equal((html.match(/class="venture-card"/g)||[]).length,3,"Expect 3 venture spotlights");
 assert.ok(html.includes("OneCall-phone-arm.apk")&&html.includes("main.zip"),"Verified downloads missing");
-assert.ok(html.includes("USB/ADB reverse")&&html.includes("standalone cloud-connected app"),"OneCall prerelease limitations missing");
+assert.ok(html.includes("backend on your computer")&&html.includes("USB/ADB"),"OneCall development build setup requirements missing");
 assert.ok(!html.includes("/MetaAutomate/archive/")&&!html.includes("/Safwa-Quran/archive/"),"Must not expose private code downloads");
 assert.ok(!html.includes('href="#"')&&!html.includes("YOUR-EMAIL"),"Placeholder links found");
 assert.ok(css.includes(".ventures-grid")&&css.includes(".journal-grid")&&css.includes(".expertise-grid"),"CSS sections missing");
@@ -162,3 +162,15 @@ for(const path of publishedFiles){
   }
 }
 console.log("PASS arrow-free full journal and publication: "+publishedFiles.length+" static files.");
+
+
+// OneCall copy: calm presentation without hiding the locally connected setup.
+const oneCallMarkup=html.match(/<article class="download-card"><div class="download-icon">APK<\/div>[\s\S]*?<\/article>/)?.[0];
+assert.ok(oneCallMarkup,"OneCall Android download card missing");
+for(const term of ["OneCall for Android","Download Android APK","Installation instructions","Verify SHA-256","USB/ADB","backend on your computer"]){
+  assert.ok(oneCallMarkup.includes(term),"OneCall release copy missing: "+term);
+}
+for(const page of ["index.html","profile.html","resume.html"]){
+  const textOnly=read(page).replace(/<[^>]*>/g," ");
+  assert.ok(!/\b(?:pilot|prerelease|warnings)\b/i.test(textOnly),"Outdated or alarm-style wording in "+page);
+}
