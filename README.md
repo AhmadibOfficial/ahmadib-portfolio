@@ -65,3 +65,7 @@ VAILABLE is a private, early-stage document productivity project with a product 
 - Highlight the public, source-backed APK evidence-reporting case study without claiming unauthorized findings or Hall of Fame recognition.
 - Use explicit text links without decorative arrows. Keep canonical journal article URLs on the separate Render deployment.
 - Maintain all eight existing project entries and their factual release boundaries.
+
+## Repository confidentiality policy (2026-11-05)
+
+The public website does not distribute application packages, source archives, repository access, or private implementation details. Project access is handled privately. GitHub repository visibility must be controlled separately in GitHub Settings; removing a link is not an access-control boundary.
