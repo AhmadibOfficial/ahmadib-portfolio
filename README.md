@@ -57,3 +57,11 @@ GitHub: https://github.com/AhmadibOfficial
 ## VAILABLE project and research objective
 
 VAILABLE is a private, early-stage document productivity project with a product blueprint and safeguarded development automation foundation; the public website describes its intended functionality, not a released service. The Hall of Fame research objective is aspirational: recognition depends on validated findings, responsible disclosure and genuine remediation contributions.
+
+
+## Published research and visual standards (November 2026)
+
+- Link the GitHub Pages portfolio to the established Ahmad-IB Security Research Journal and four archived articles.
+- Highlight the public, source-backed APK evidence-reporting case study without claiming unauthorized findings or Hall of Fame recognition.
+- Use explicit text links without decorative arrows. Keep canonical journal article URLs on the separate Render deployment.
+- Maintain all eight existing project entries and their factual release boundaries.
