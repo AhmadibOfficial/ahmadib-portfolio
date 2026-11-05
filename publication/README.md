@@ -8,19 +8,19 @@ A professional personal website with software engineering, application security,
 
 ## Features
 
-- Home, About, Expertise, Projects, MVP Downloads, Research Journal, Ventures, Process and Contact
+- Home, About, Expertise, Projects, Public Downloads, Research Journal, Ventures, Process and Contact
 - Responsive design with mobile navigation and accessible skip link
 - Project cards and filter buttons
-- Public artifacts only: OneCall USB Android phone pilot APK and Android Security Toolkit Python source
+- Public artifacts only: OneCall Android development build and Android Security Toolkit Python source
 - Five source-backed security-research articles, RSS feed and existing canonical article URLs
 - Sitemap, favicon and social metadata
 - No tracking scripts, passwords, external JS dependencies or private repo contents
 
-## Important distribution limitations
+## Download documentation
 
-- **OneCall** phone pilot is a **debug-signed prerelease** requiring a local backend and USB ADB reverse forwarding, not a standalone mobile service. Read official release notes and verify the checksum before installing.
+- **OneCall** offers an Android development build for use with the backend running locally and a USB/ADB connection. The public page links installation instructions, release details and SHA-256 verification. The signing details remain documented in the original GitHub release.
 - **Android Security Toolkit** is an open-source CLI source download (Python 3.11+), **not an APK**. Scan only authorized apps.
-- **MetaAutomate** has its company website at https://metaautomate.onrender.com/; the private platform has no downloadable MVP published here.
+- **MetaAutomate** has its company website at https://metaautomate.onrender.com/; no publicly downloadable application package is provided here.
 - **Safwa Quran**, Security Research OS and the IMarket/Nayvelo concepts have no verified public installable release advertised here.
 - The public web resume is linked from the site; no unreviewed penetration-testing report is published.
 
