@@ -11,15 +11,15 @@ A professional personal website with software engineering, application security,
 - Home, About, Expertise, Projects, Public Downloads, Research Journal, Ventures, Process and Contact
 - Responsive design with mobile navigation and accessible skip link
 - Project cards and filter buttons
-- Public artifacts only: OneCall Android development build and Android Security Toolkit Python source
+- Private software access requests; no public source or binary downloads
 - Five source-backed security-research articles, RSS feed and existing canonical article URLs
 - Sitemap, favicon and social metadata
 - No tracking scripts, passwords, external JS dependencies or private repo contents
 
-## Download documentation
+## Private project access
 
-- **OneCall** offers an Android development build for use with the backend running locally and a USB/ADB connection. The public page links installation instructions, release details and SHA-256 verification. The signing details remain documented in the original GitHub release.
-- **Android Security Toolkit** is an open-source CLI source download (Python 3.11+), **not an APK**. Scan only authorized apps.
+- **OneCall** distributes app packages and engineering files privately to approved recipients. The website provides an access request instead of a file link.
+- **Android Security Toolkit** source and research engineering files require approved access. No public download is linked.
 - **MetaAutomate** has its company website at https://metaautomate.onrender.com/; no publicly downloadable application package is provided here.
 - **Safwa Quran**, Security Research OS and the IMarket/Nayvelo concepts have no verified public installable release advertised here.
 - The public web resume is linked from the site; no unreviewed penetration-testing report is published.
@@ -57,3 +57,7 @@ VAILABLE is a private, early-stage document productivity project with a product 
 - Search, category filters and progressive enhancement remain operational.
 - Public-facing pages avoid decorative arrow glyphs; text links carry accessible labels.
 - No security award, real-world exploited vulnerability, or undisclosed customer finding is implied.
+
+## Source confidentiality policy (2026-11-05)
+
+Direct links to owned GitHub source files, source archives and APK binaries are excluded from the public site. GitHub repository visibility itself must separately be changed to Private; removing website links does not revoke GitHub access or past clones.
