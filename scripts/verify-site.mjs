@@ -16,7 +16,11 @@ for (const id of requiredSections) assert.ok(html.includes('id="' + id + '"'), "
 for (const file of ["css/style.css","js/script.js","assets/favicon.svg"]) assert.ok(existsSync(resolve(root,file)), "Missing asset " + file);
 assert.ok(css.includes(".project-card") && css.includes(".downloads-section"), "Missing core CSS");
 assert.ok(js.includes("data-filter") || js.includes(".filter-button"), "Missing filter JavaScript");
-assert.ok(html.includes("OneCall-phone-arm.apk"), "OneCall pilot link missing");
+assert.ok(html.includes("<h3>OneCall</h3>"), "OneCall project must remain featured");
+assert.ok(html.includes("<h3>APK Evidence Reporting</h3>"), "Published research resource missing");
+for(const deprecated of ["OneCall-phone-arm.apk","OneCall Phone Pilot","Pilot APK","Setup & warnings","USB/ADB reverse","debug certificate"]){
+  assert.ok(!html.includes(deprecated), "Discontinued OneCall pilot promotion remains: "+deprecated);
+}
 assert.ok(html.includes("android-security-toolkit/archive/refs/heads/main.zip"), "Toolkit source link missing");
 assert.ok(!html.includes("Ahmad_Ibrahim_CV"), "Unverified CV link must not return");
 assert.ok(!html.includes('href="#"'), "Dead placeholder link found");
