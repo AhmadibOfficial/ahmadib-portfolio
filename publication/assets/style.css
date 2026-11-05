@@ -177,3 +177,57 @@ button,a{font:inherit}a{color:inherit}button{cursor:pointer}img{max-width:100%;h
 .identity-footer a{color:#c6ddff}
 @media(max-width:800px){.identity-intro,.identity-content{grid-template-columns:1fr}.identity-intro{gap:32px}.identity-portrait{max-width:390px}.identity-cards{grid-template-columns:1fr}.identity-cards article p:not(.identity-kicker){min-height:0}.identity-hero,.identity-section{padding:52px 0}}
 @media(max-width:520px){.identity-page .site-nav a:not(.nav-contact){display:none}.identity-links{gap:9px}}
+
+/* Journal editorial architecture and evidence-first practice, 2026-11-05. */
+.expertise-editorial .expertise-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.expertise-editorial .expertise-card{display:flex;flex-direction:column;gap:10px;border-radius:12px;padding:24px;background:#fff;border:1px solid #dce4ee;box-shadow:none}
+.expertise-editorial .expertise-card--primary{grid-column:span 2;background:#f7f9fd;padding:33px;min-height:320px;border-top:3px solid #2468e8}
+.expertise-editorial .expertise-card h3{font-size:1.22rem;margin:6px 0 1px}
+.expertise-editorial .expertise-card--primary h3{font-size:clamp(1.55rem,2.4vw,2.1rem);max-width:460px}
+.expertise-editorial .expertise-card p{margin:0 0 8px;font-size:.87rem;line-height:1.75}
+.expertise-editorial .expertise-card--primary p{font-size:.95rem}
+.expertise-editorial .expertise-card .tag-row{margin-top:auto}
+.expertise-evidence{display:inline-flex;align-self:flex-start;margin-top:18px;font-size:.85rem;color:var(--blue);font-weight:800;text-underline-offset:4px}
+.research-editorial{background:#f7f9fc}
+.research-lead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,.85fr);gap:clamp(30px,5vw,78px);align-items:start;margin-bottom:76px}
+.research-lead-copy h2{font-size:clamp(2.7rem,5.1vw,4.8rem);line-height:1.09;letter-spacing:-.06em;max-width:850px;margin:0 0 27px}
+.research-lead-copy h2 em{font-style:normal;color:var(--blue)}
+.research-intro{max-width:690px;font-size:1.02rem;line-height:1.85;color:#4e6178;margin:0 0 26px}
+.research-publication-links{display:flex;flex-wrap:wrap;gap:12px 24px}
+.research-publication-links a{font-size:.85rem;color:var(--blue);font-weight:800;text-underline-offset:4px}
+.research-standard{padding:30px;border-top:3px solid var(--dark);background:#fff;border-bottom:1px solid #dce4ee}
+.research-standard-label,.journal-proof-label{font-size:.7rem;font-weight:900;letter-spacing:.12em;color:var(--blue);margin:0 0 16px}
+.research-standard h3{font-size:1.28rem;line-height:1.35;margin:0 0 18px;letter-spacing:-.02em}
+.research-standard ol{padding-left:19px;margin:0;display:grid;gap:13px;color:#465b73;font-size:.84rem;line-height:1.7}
+.research-standard strong{color:#1b304b}
+.research-standard>p:last-child{border-top:1px solid #e4eaf1;margin:22px 0 0;padding-top:18px;font-size:.76rem;line-height:1.65;color:#66778b}
+.research-library-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;border-top:1px solid #dce4ee;padding-top:29px;margin:0 0 25px}
+.research-library-heading .overline{margin:0 0 6px}
+.research-library-heading h3{font-size:clamp(1.7rem,3vw,2.35rem);letter-spacing:-.035em;line-height:1.2;margin:0}
+.research-library-heading>p{color:var(--muted);font-size:.88rem;max-width:300px;margin:0}
+.research-editorial .journal-controls{padding:16px 0 18px;margin-bottom:0;align-items:center}
+.research-editorial .journal-filter{background:transparent;border:1px solid #cfdae7;border-radius:7px;font-size:.77rem;padding:10px 13px}
+.research-editorial .journal-filter.is-active{background:var(--dark);color:#fff}
+.research-editorial .journal-filter:focus-visible,.research-editorial input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.research-editorial .journal-search{font-size:.76rem}
+.research-editorial .journal-search input{min-width:215px}
+.research-editorial .journal-count{margin:4px 0 18px}
+.research-editorial .journal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.research-editorial .journal-card{background:#fff;border:1px solid #dce4ee;border-radius:10px;min-height:260px;padding:29px;box-shadow:none}
+.journal-card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.journal-card-meta time,.journal-reading-kind{font-size:.68rem;letter-spacing:.06em;font-weight:750;color:#748499}
+.research-editorial .journal-card h3{font-size:clamp(1.19rem,2vw,1.55rem);line-height:1.37;margin:17px 0 10px}
+.research-editorial .journal-card p{font-size:.88rem;line-height:1.8;color:#52657a}
+.journal-card-foot{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:10px 20px;border-top:1px solid #e5ebf3;padding-top:17px;margin-top:auto}
+.journal-card-foot span,.journal-evidence{font-size:.72rem;color:#75869a;line-height:1.55}
+.journal-card-foot a,.journal-main-link{font-size:.85rem;font-weight:850;color:var(--blue);text-decoration:underline;text-underline-offset:4px}
+.research-editorial .journal-card--featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);gap:30px;padding:0;min-height:290px;border:1px solid #ccdaea;border-top:4px solid var(--blue);background:#fff}
+.journal-feature-copy{padding:40px 40px 43px}
+.journal-feature-copy h3{font-size:clamp(1.7rem,2.8vw,2.55rem)!important;margin:17px 0 15px!important;max-width:670px;letter-spacing:-.04em}
+.journal-feature-copy p{max-width:650px;margin-bottom:27px!important}
+.journal-feature-proof{padding:40px 33px;background:#eef4fb;border-left:1px solid #d7e3f0;display:flex;flex-direction:column;gap:13px}
+.journal-feature-proof ul{margin:0;padding-left:19px;display:grid;gap:13px;color:#38516e;font-size:.83rem;line-height:1.7}
+.journal-evidence{margin-top:auto}
+@media(max-width:920px){.research-lead{grid-template-columns:1fr}.research-standard{max-width:650px}.research-editorial .journal-card--featured{grid-template-columns:1fr}.journal-feature-proof{border-left:0;border-top:1px solid #d7e3f0}}
+@media(max-width:750px){.expertise-editorial .expertise-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.expertise-editorial .expertise-card--primary{grid-column:span 2}.research-editorial .journal-grid{grid-template-columns:1fr}.research-library-heading{align-items:flex-start;flex-direction:column;gap:8px}.journal-feature-copy{padding:28px}.journal-feature-proof{padding:27px}}
+@media(max-width:520px){.expertise-editorial .expertise-grid{grid-template-columns:1fr}.expertise-editorial .expertise-card--primary{grid-column:span 1;padding:25px;min-height:0}.research-standard{padding:24px}.research-publication-links{gap:12px}.research-editorial .journal-card{padding:23px}.research-editorial .journal-card--featured{padding:0}.research-editorial .journal-search{width:100%}.research-editorial .journal-search input{width:100%}}
