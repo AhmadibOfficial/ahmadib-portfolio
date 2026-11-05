@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {existsSync,readFileSync} from "node:fs";
+import {existsSync,readFileSync,readdirSync} from "node:fs";
 import {resolve,dirname} from "node:path";
 import {fileURLToPath} from "node:url";
 
@@ -131,3 +131,34 @@ assert.ok(html.includes('data-category-filter="intelligence"'),"Intelligence cat
 for(const page of ["index.html","profile.html","resume.html","404.html",...articles.map(x=>"articles/"+x+".html")]){
  assert.ok(!/[↗↖↘↙←→↓↑➜➝➔➤➞⟶⟵]/u.test(read(page)),"Decorative arrows remain in "+page);
 }
+
+
+// Enumerate every public page and stylesheet to prevent arrows resurfacing
+// in the Journal, research articles, profile, CV, RSS or other public files.
+const UI_ARROW = /[\u2190-\u21ff\u27a0-\u27bf\u27f0-\u27ff\u2900-\u297f\u2b00-\u2bff]/u;
+const NAMED_ARROW = /&(?:larr|rarr|uarr|darr|harr|nearr|searr|swarr|nwarr|leftarrow|rightarrow|LeftArrow|RightArrow|longleftarrow|longrightarrow|LongLeftArrow|LongRightArrow);/iu;
+const CSS_ARROW_ESCAPE = /\\0*(?:21[0-9a-f]{2}|27[af][0-9a-f]|29[0-7][0-9a-f]|2b[0-9a-f]{2})(?![0-9a-f])/iu;
+function publicStaticFiles(dir){
+  const paths=[];
+  for(const entry of readdirSync(dir,{withFileTypes:true})){
+    if(entry.isDirectory()){
+      if([".git",".github","scripts"].includes(entry.name))continue;
+      paths.push(...publicStaticFiles(resolve(dir,entry.name)));
+    }else if(entry.isFile()&&/\.(?:html|css|js|svg|xml)$/i.test(entry.name)){
+      paths.push(resolve(dir,entry.name));
+    }
+  }
+  return paths;
+}
+const publishedFiles=[...publicStaticFiles(folder),resolve(folder,"../index.html")];
+for(const path of publishedFiles){
+  const source=readFileSync(path,"utf8");
+  assert.ok(!UI_ARROW.test(source),"Decorative arrow character in "+path);
+  assert.ok(!NAMED_ARROW.test(source),"Named arrow HTML entity in "+path);
+  assert.ok(!CSS_ARROW_ESCAPE.test(source),"Escaped CSS arrow in "+path);
+  for(const entity of source.matchAll(/&#(?:x([0-9a-f]+)|([0-9]+));/gi)){
+    const cp=parseInt(entity[1]??entity[2],entity[1]?16:10);
+    if(cp>=0&&cp<=0x10ffff)assert.ok(!UI_ARROW.test(String.fromCodePoint(cp)),"Encoded arrow in "+path);
+  }
+}
+console.log("PASS arrow-free full journal and publication: "+publishedFiles.length+" static files.");
