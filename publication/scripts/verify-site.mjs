@@ -120,3 +120,14 @@ assert.ok(newCase.includes("requires_manual_validation"),"Manual-validation limi
 assert.ok(newCase.includes("not a record of a scan performed"),"Case-study evidence boundary missing");
 assert.ok(feed.includes("redacted-apk-evidence-reports.html"),"RSS missing case study");
 assert.ok(profileHtml.includes('articles/redacted-apk-evidence-reports.html'),"Professional profile missing case study");
+
+
+// Editorial hierarchy, accessibility and arrow-free publication policy.
+assert.ok(html.includes('class="research-lead"'),"Journal editorial header is missing");
+assert.ok(html.includes('class="research-standard"'),"Research disclosure standards missing");
+assert.ok(html.includes('class="journal-card journal-card--featured"'),"Featured engineering case study missing");
+assert.ok(html.includes('class="expertise-card expertise-card--primary"'),"Core expertise architecture missing");
+assert.ok(html.includes('data-category-filter="intelligence"'),"Intelligence category filter missing");
+for(const page of ["index.html","profile.html","resume.html","404.html",...articles.map(x=>"articles/"+x+".html")]){
+ assert.ok(!/[↗↖↘↙←→↓↑➜➝➔➤➞⟶⟵]/u.test(read(page)),"Decorative arrows remain in "+page);
+}
