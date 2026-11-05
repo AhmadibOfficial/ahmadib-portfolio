@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -100,3 +100,37 @@ for(const name of ["exported-android-components","api-authorization-boundaries",
  assert.ok(html.includes(name+".html"),"Research article omitted: "+name);
 }
 assert.ok(!/[↗↖↘↙←→↓↑➜➝➔➤➞⟶⟵]/u.test(html),"Decorative arrow remains on portfolio");
+
+
+// Site-wide check: enforce arrow-free published pages, not just the homepage.
+// Visit all static HTML/CSS/JS/XML/SVG sources (skip build-time test scripts).
+const UI_ARROW = /[\u2190-\u21ff\u27a0-\u27bf\u27f0-\u27ff\u2900-\u297f\u2b00-\u2bff]/u;
+const NAMED_ARROW = /&(?:larr|rarr|uarr|darr|harr|nearr|searr|swarr|nwarr|leftarrow|rightarrow|LeftArrow|RightArrow|longleftarrow|longrightarrow|LongLeftArrow|LongRightArrow);/iu;
+const CSS_ARROW_ESCAPE = /\\0*(?:21[0-9a-f]{2}|27[af][0-9a-f]|29[0-7][0-9a-f]|2b[0-9a-f]{2})(?![0-9a-f])/iu;
+const UI_EXTENSIONS = /\.(?:html|css|js|svg|xml)$/i;
+function publishedSources(dir) {
+  let paths=[];
+  for(const entry of readdirSync(dir,{withFileTypes:true})){
+    if(entry.isDirectory()){
+      if([".git",".github","docs","scripts"].includes(entry.name))continue;
+      paths.push(...publishedSources(resolve(dir,entry.name)));
+    }else if(entry.isFile()&&UI_EXTENSIONS.test(entry.name)){
+      paths.push(resolve(dir,entry.name));
+    }
+  }
+  return paths;
+}
+const uiFiles=publishedSources(root);
+for(const path of uiFiles){
+  const source=readFileSync(path,"utf8");
+  assert.ok(!UI_ARROW.test(source),"Decorative arrow character in "+path);
+  assert.ok(!NAMED_ARROW.test(source),"HTML arrow entity in "+path);
+  assert.ok(!CSS_ARROW_ESCAPE.test(source),"CSS arrow escape in "+path);
+  for(const entity of source.matchAll(/&#(?:x([0-9a-f]+)|([0-9]+));/gi)){
+    const cp=parseInt(entity[1]??entity[2],entity[1]?16:10);
+    if(cp>=0 && cp<=0x10ffff){
+      assert.ok(!UI_ARROW.test(String.fromCodePoint(cp)),"Encoded arrow entity in "+path);
+    }
+  }
+}
+console.log("PASS no decorative arrows across "+uiFiles.length+" published static files.");
