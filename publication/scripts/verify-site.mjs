@@ -21,8 +21,8 @@ for(const asset of ["assets/style.css","assets/app.js","assets/favicon.svg","fee
 assert.equal((html.match(/class="project-card(?:\s|")/g)||[]).length,8,"Expect 8 project showcases");
 assert.equal((html.match(/data-article-card\b/g)||[]).length,5,"Expect 5 research previews");
 assert.equal((html.match(/class="venture-card"/g)||[]).length,3,"Expect 3 venture spotlights");
-assert.ok(html.includes("OneCall-phone-arm.apk")&&html.includes("main.zip"),"Verified downloads missing");
-assert.ok(html.includes("backend on your computer")&&html.includes("USB/ADB"),"OneCall development build setup requirements missing");
+assert.ok(html.includes("OneCall for Android")&&html.includes("Request access"),"Private access notice missing");
+assert.ok(html.includes("PRIVATE PROJECT ACCESS"),"Private distribution section missing");
 assert.ok(!html.includes("/MetaAutomate/archive/")&&!html.includes("/Safwa-Quran/archive/"),"Must not expose private code downloads");
 assert.ok(!html.includes('href="#"')&&!html.includes("YOUR-EMAIL"),"Placeholder links found");
 assert.ok(css.includes(".ventures-grid")&&css.includes(".journal-grid")&&css.includes(".expertise-grid"),"CSS sections missing");
@@ -114,8 +114,8 @@ assert.ok(read("resume.html").includes('href="https://x.com/AhmadibOfficial"'),"
 const newCase=read("articles/redacted-apk-evidence-reports.html");
 assert.ok(newCase.includes('TechArticle'),"New case study missing TechArticle schema");
 assert.ok(newCase.includes('rel="canonical" href="https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html"'),"Incorrect case-study canonical");
-assert.ok(newCase.includes('src/ahmad_sec/reporting/evidence.py'),"Primary research implementation not cited");
-assert.ok(newCase.includes('tests/test_evidence_report.py'),"Research tests not cited");
+
+
 assert.ok(newCase.includes("requires_manual_validation"),"Manual-validation limit missing");
 assert.ok(newCase.includes("not a record of a scan performed"),"Case-study evidence boundary missing");
 assert.ok(feed.includes("redacted-apk-evidence-reports.html"),"RSS missing case study");
@@ -165,12 +165,16 @@ console.log("PASS arrow-free full journal and publication: "+publishedFiles.leng
 
 
 // OneCall copy: calm presentation without hiding the locally connected setup.
-const oneCallMarkup=html.match(/<article class="download-card"><div class="download-icon">APK<\/div>[\s\S]*?<\/article>/)?.[0];
-assert.ok(oneCallMarkup,"OneCall Android download card missing");
-for(const term of ["OneCall for Android","Download Android APK","Installation instructions","Verify SHA-256","USB/ADB","backend on your computer"]){
-  assert.ok(oneCallMarkup.includes(term),"OneCall release copy missing: "+term);
-}
+const oneCallMarkup=html.match(/<article class="download-card"><div class="download-icon">APP<\/div>[\s\S]*?<\/article>/)?.[0];
+assert.ok(oneCallMarkup?.includes("Request access"),"OneCall must require approved private distribution");
+assert.ok(!/https:\/\/github\.com\/AhmadibOfficial\/(?:OneCall|android-security-toolkit)/i.test(html),"Direct source links must not be public");
 for(const page of ["index.html","profile.html","resume.html"]){
   const textOnly=read(page).replace(/<[^>]*>/g," ");
   assert.ok(!/\b(?:pilot|prerelease|warnings)\b/i.test(textOnly),"Outdated or alarm-style wording in "+page);
+}
+
+// Confidentiality gate: published HTML must not point to owned source files or application release artifacts.
+for(const file of ["index.html","profile.html","resume.html",...articles.map(x=>"articles/"+x+".html")]) {
+ const publicHtml=read(file);
+ assert.ok(!/https:\/\/github\.com\/AhmadibOfficial\/(?:OneCall|android-security-toolkit)(?:[\/#"]|$)/i.test(publicHtml),"Owned source link exposed: "+file);
 }
