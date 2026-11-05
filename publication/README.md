@@ -47,3 +47,13 @@ Preserve /articles/, /feed.xml, /sitemap.xml and existing links. New research is
 ## VAILABLE project and research objective
 
 VAILABLE is a private, early-stage document productivity project with a product blueprint and safeguarded development automation foundation; the public website describes its intended functionality, not a released service. Security research is centered on authorized testing, reproducible evidence, responsible disclosure and practical remediation.
+
+
+## Editorial and visual architecture (November 2026)
+
+- Primary technical disciplines are distinguished from supporting engineering capabilities, with direct links to public evidence.
+- Journal library retains five existing canonical articles and their original URLs, feed and sitemap.
+- The code-backed evidence-report case study is featured above categorized technical articles and sourced intelligence.
+- Search, category filters and progressive enhancement remain operational.
+- Public-facing pages avoid decorative arrow glyphs; text links carry accessible labels.
+- No security award, real-world exploited vulnerability, or undisclosed customer finding is implied.
