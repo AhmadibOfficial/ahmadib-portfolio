@@ -8,7 +8,7 @@ const html = read("index.html");
 const css = read("css/style.css");
 const js = read("js/script.js");
 const projectCount = (html.match(/class="project-card(?:\s|")/g) ?? []).length;
-const requiredSections = ["home","about","expertise","projects","downloads","approach","contact"];
+const requiredSections = ["home","about","expertise","projects","research","downloads","approach","contact"];
 
 assert.match(html, /<!doctype html>/i);
 assert.equal(projectCount, 8, "Expected seven real project cards");
@@ -90,3 +90,13 @@ await import("./verify-discoverability.mjs");
 
 assert.ok(html.includes('href="https://x.com/AhmadibOfficial"'),"Official X social profile missing");
 assert.ok(css.includes(".social-x .social-logo"),"X social icon styling missing");
+
+
+// Public research index must link to existing published evidence without arrow decoration.
+assert.ok(html.includes('class="research-preview-grid"'),"Missing research index");
+assert.ok(html.includes("https://ahmadib.onrender.com/articles/redacted-apk-evidence-reports.html"),"Published code-backed article missing");
+assert.ok(html.includes("https://ahmadib.onrender.com/#research"),"Dedicated research journal missing");
+for(const name of ["exported-android-components","api-authorization-boundaries","android-security-toolkit","intelligence-2026-10-17"]){
+ assert.ok(html.includes(name+".html"),"Research article omitted: "+name);
+}
+assert.ok(!/[↗↖↘↙←→↓↑➜➝➔➤➞⟶⟵]/u.test(html),"Decorative arrow remains on portfolio");
