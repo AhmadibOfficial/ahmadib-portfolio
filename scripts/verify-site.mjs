@@ -16,8 +16,8 @@ for (const id of requiredSections) assert.ok(html.includes('id="' + id + '"'), "
 for (const file of ["css/style.css","js/script.js","assets/favicon.svg"]) assert.ok(existsSync(resolve(root,file)), "Missing asset " + file);
 assert.ok(css.includes(".project-card") && css.includes(".downloads-section"), "Missing core CSS");
 assert.ok(js.includes("data-filter") || js.includes(".filter-button"), "Missing filter JavaScript");
-assert.ok(html.includes("OneCall-phone-arm.apk"), "OneCall Android build download link missing");
-assert.ok(html.includes("android-security-toolkit/archive/refs/heads/main.zip"), "Toolkit source link missing");
+assert.ok(html.includes("OneCall for Android") && html.includes("Request access"), "Private OneCall access information missing");
+assert.ok(html.includes("Android Security Toolkit"), "Toolkit overview missing");
 assert.ok(!html.includes("Ahmad_Ibrahim_CV"), "Unverified CV link must not return");
 assert.ok(!html.includes('href="#"'), "Dead placeholder link found");
 assert.ok(!html.includes("/MetaAutomate/archive/"), "Private MetaAutomate source must not be linked");
@@ -137,10 +137,8 @@ console.log("PASS no decorative arrows across "+uiFiles.length+" published stati
 
 
 // Release copy: clear technical prerequisites without alarm-style or outdated labels.
-const oneCallMarkup = html.match(/<article class="download-card"><div class="download-icon">APK<\/div>[\s\S]*?<\/article>/)?.[0];
-assert.ok(oneCallMarkup, "OneCall Android download card missing");
-for (const term of ["OneCall for Android","Download Android APK","Installation instructions","Verify SHA-256","USB/ADB","backend on your computer"]) {
-  assert.ok(oneCallMarkup.includes(term), "OneCall copy must retain: "+term);
-}
+const oneCallMarkup = html.match(/<article class="download-card"><div class="download-icon">APP<\/div>[\s\S]*?<\/article>/)?.[0];
+assert.ok(oneCallMarkup?.includes("Request access"),"OneCall must require approved access");
+assert.ok(!/https:\/\/github\.com\/AhmadibOfficial\/(?:OneCall|android-security-toolkit)/i.test(html),"Do not expose direct project links");
 const visibleCopy = html.replace(/<[^>]*>/g, " ");
 assert.ok(!/\b(?:pilot|prerelease|warnings)\b/i.test(visibleCopy), "Outdated status or alarming copy remains in visible portfolio text");
