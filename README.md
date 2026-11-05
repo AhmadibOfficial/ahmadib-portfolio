@@ -18,7 +18,7 @@ Showcase application security, software engineering, selected products, research
 
 | Project | Visibility / release | Public downloads |
 | --- | --- | --- |
-| OneCall | Public repository, pre-release USB phone pilot tag phone-pilot-10-1 | Android test APK with local backend / USB reverse dependency. Read full release notes and verify SHA256. Not a production standalone app. |
+| OneCall | Public repository, Android development build | Android APK connects to the locally running backend through USB/ADB. Installation instructions and SHA-256 verification are linked on the website. |
 | Android Security Toolkit | Public Python source (Apache-2.0), no verified binary release | Source ZIP of main. Install using README, Python 3.11+. |
 | MetaAutomate | Private repository | No downloadable package. Public business website only. |
 | Security Research OS | Private repository | No downloadable package. |
@@ -26,7 +26,7 @@ Showcase application security, software engineering, selected products, research
 | IMarket | Concept / early engineering | No verified public release. |
 | Nayvelo Mobile | Telecom concept / simulated design | No verified public release. |
 
-The OneCall repository has a proprietary license; linking its intentionally published test APK does not grant broad redistribution or re-licensing rights. The portfolio does not mirror that binary.
+The OneCall repository has a proprietary license; linking its publicly available Android build does not grant redistribution or re-licensing rights. The portfolio does not mirror the package.
 
 ## Test
 
@@ -46,7 +46,7 @@ Confirm keyboard navigation, mobile menu, project filters, source/download links
 
 GitHub Pages remains configured from main / (root). After review and successful testing, merge the PR into main. The deployment will use the current root index.html.
 
-## Add new MVP download
+## Add a public download
 
 Only add a download button after verifying (1) public distribution rights, (2) the exact artifact, (3) supported platform and prerequisites, (4) checksum/signature where applicable, (5) release status, and (6) install instructions.
 
